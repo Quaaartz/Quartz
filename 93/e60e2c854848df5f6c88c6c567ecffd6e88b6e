@@ -1,0 +1,77 @@
+Koren/Resource/ResourceManager.cs
+  s_a15720358fc354::t_a79b0678188179 36
+  s_a15720358fc354::t_583d44b3f28af2 190-191
+Koren/UI/Factory/Page/PageSettings.cs
+  s_a15720358fc354::t_6d273f4252aa08 464-494
+  s_a15720358fc354::t_3f1014b7105d7a 14,18-23,30-35
+  s_a15720358fc354::t_d8d4a2a2008ce8 359-393
+  s_a15720358fc354::t_3c064e59430903 394-446
+Koren/Core/KorenRuntime.cs
+  s_a15720358fc354::t_f33f79617987d9 12
+  s_a15720358fc354::t_d587f1e1c6957b 114-116
+Koren/Resource/SpriteManager.cs
+  s_a15720358fc354::t_7d9e8528872ed9 22
+  s_a15720358fc354::t_cf8e98902bded8 169-170
+Koren/UI/Factory/PageFactory.cs
+  s_a15720358fc354::t_360745eebbe641 34-39
+Koren/Core/Info.cs
+  s_a15720358fc354::t_4429ef117bf53c 11-12,14-17
+  s_a15720358fc354::t_0df40b085816e9 18,20,23,27-34
+  s_a15720358fc354::t_ac9b0c66c09a54 6-8,10,13,19,21-22,35-36
+  s_a15720358fc354::t_7c4efa058743bd 39-43
+  s_a15720358fc354::t_22bb7f473a9ced 24-26
+Koren/Compat/Interface/IKorenHost.cs
+  s_a15720358fc354::t_3f7355bbd3d5a9 7-12
+Koren/UI/UICore.cs
+  s_a15720358fc354::t_b4157b3c717164 32
+  s_a15720358fc354::t_c179d508fe6a56 502
+Koren/Update/UpdateService.cs
+  s_a15720358fc354::t_d39ce2c42368ea 158-165
+  s_a15720358fc354::t_12648bb05d9332 46-49
+  s_a15720358fc354::t_051b95c1bf0aab 1-20,22-25,28-32,41-45,50,54,56-57,60,68-86,88-95,99-114,117-126,128,130-132,134-157,166-171,173-186,189-204,225
+  s_a15720358fc354::t_fe1d3c59960a5b 26-27,33-36,51,53,55,62-66,87,96-97,115-116,127,129,133,172,187-188
+  s_a15720358fc354::t_873381a2f073a8 205-224
+  s_a15720358fc354::t_316f5846b5180d 21,37-40,52,58-59,61,67,98
+Koren/UI/Factory/Page/PageDeveloper.cs
+  s_a15720358fc354::t_3dadb9cbea58e0 1-142
+Koren/IO/CoreSettings.cs
+  s_a15720358fc354::t_2b0f40dd0a9d5c 24-28,33-38
+  s_a15720358fc354::t_de988d928bd63d 29-32
+  s_a15720358fc354::t_5843dfe9bbf655 72
+  s_a15720358fc354::t_4fddc91d49726f 91
+  s_a15720358fc354::t_6f294f07d73f4b 71
+  s_a15720358fc354::t_545ba0af499125 92
+tools/release.sh
+  s_a15720358fc354::t_7255739133e386 1-2,4,8,10-11,14-17,21,25-31,33,47,49-50,52-55,57-66
+  s_a15720358fc354::t_a06be175f7a674 3,5-7,9,12-13,18-20,22-24,32,34-46,48,51,56,67
+Koren/Core/SemVer.cs
+  s_a15720358fc354::t_5bec7ee72dd0ad 45
+  s_a15720358fc354::t_762755bb464211 74-77
+  s_a15720358fc354::t_45efef16592be0 127
+  s_a15720358fc354::t_9d18059846118a 37
+  s_a15720358fc354::t_3c16ebfd48da65 6-10
+  s_a15720358fc354::t_9451cdca5955a2 1-5,11-36,38-44,46-73,78-126,128
+Koren.Loader.ML/Loader.cs
+  s_a15720358fc354::t_e08f9818bc64ae 21-22
+  s_a15720358fc354::t_ff4c6374f0ed3e 6-8
+Koren/UI/Factory/MenuFactory.cs
+  s_a15720358fc354::t_7c6473d8e49661 55-61
+build.json
+  s_a15720358fc354::t_53901d6e43e19b 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "93e60e2c854848df5f6c88c6c567ecffd6e88b6e",
+  "prompts": {},
+  "sessions": {
+    "s_a15720358fc354": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ec96631c-8775-458c-9725-7780d737342e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
