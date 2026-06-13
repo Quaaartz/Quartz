@@ -1,0 +1,152 @@
+Koren/Update/UpdateService.cs
+  s_b7bb973b707edc::t_abce1c9f249ecb 2
+  s_b7bb973b707edc::t_1310fefdd855af 449
+  s_b7bb973b707edc::t_c0066bc2d399ea 317-329,331-356
+  s_b7bb973b707edc::t_8a61e61a99e896 39-40
+  s_b7bb973b707edc::t_d721ce1394e6bb 188-191,195-198,202-204,213-214
+  s_b7bb973b707edc::t_6ea2e704bb92ea 231
+  s_b7bb973b707edc::t_a87307f5e2ce03 275
+  s_b7bb973b707edc::t_d3fe40eb0403b1 260-264,266-274,276,284-316,330
+Koren/Features/Restriction/Restriction.cs
+  s_b7bb973b707edc::t_0b03e5395ba5b8 156
+  s_b7bb973b707edc::t_657e956bff3103 60-92
+Koren/UI/Factory/Page/PageGameplay.cs
+  s_b7bb973b707edc::t_a08a5dbe5b760f 583-588
+Koren/Features/KeyViewer/KeyViewerOverlay.cs
+  s_6dc77b8c03dd8d::t_68dc290156ae39 1579
+  s_b7bb973b707edc::t_0e5b9ca6729b2c 1181-1195
+  s_b7bb973b707edc::t_fe22818db9995d 1164-1176
+  s_b7bb973b707edc::t_c9ec28661f562a 2044,2049
+  s_b7bb973b707edc::t_998cd72a5f42bd 1319-1321,1325
+  s_6dc77b8c03dd8d::t_e9fb293d111d28 2118-2120
+  s_b7bb973b707edc::t_5829d9af382dd0 401-405,408-418,421-435,441-447,453-466
+  s_b7bb973b707edc::t_3dffc95b24c04c 1659,1661,1667,1670
+  s_6dc77b8c03dd8d::t_9cb84d370bd4b7 1923
+  s_6dc77b8c03dd8d::t_46f73ee401edf9 47,180-181,242,560,1567
+  s_6dc77b8c03dd8d::t_a87193cccd5131 66,2001-2002,2066,2148-2149,2180
+  s_6dc77b8c03dd8d::t_621888a41243a9 1696,1699,1743-1744,1748-1749,1752-1753,1761
+  s_b7bb973b707edc::t_6558fbd8891ad3 1281-1302
+  s_b7bb973b707edc::t_617d2ded8694c7 1705-1720,1722,1725-1726,1728-1730,1732-1742,1745,1747,1750-1751,1755-1760,1762-1769,1773-1777,1779,1781-1785,1791-1793,1796-1797
+  s_6dc77b8c03dd8d::t_78934a1d5f2b05 1895-1897,1900-1903,1908-1910
+  s_b7bb973b707edc::t_d196fd91f7c4fa 2176
+  s_6dc77b8c03dd8d::t_2d3d8671707441 1654-1655,1657-1658,1660,1662-1666,1668-1669,1671,1676,1680-1684,1686-1692,1697-1698,1700-1704,1723-1724,1727,1731,1788-1790,1794-1795,1798-1803,1819,1822-1833,1835-1836,1840-1841,1843,1849-1850,1852,1856,1860-1864,1868-1873,1878,1885,1889-1894,1898-1899,1904-1905,1907,1913-1914
+Koren/UI/Factory/Page/PageKeyViewer.cs
+  s_b7bb973b707edc::t_5b609c0d67b4e1 736-743
+  s_b7bb973b707edc::t_82dded87d1b4fb 365-368
+  s_b7bb973b707edc::t_8266c50579495f 103-122
+Koren/Features/Tweaks/TweaksSettings.cs
+  s_b7bb973b707edc::t_ac277fcf8fbccf 44-46
+  s_b7bb973b707edc::t_22904865e86e2f 62-64
+  s_b7bb973b707edc::t_b17d7e8e70f0de 22-28
+Koren/UI/UICore.cs
+  s_b7bb973b707edc::t_68ee2d6e275747 953-955
+  s_b7bb973b707edc::t_74f6f8ab8c8ef7 211,222-232
+  s_b7bb973b707edc::t_b2b894f71557ef 572-573
+  s_b7bb973b707edc::t_c64ed7b34f6a9d 956-958
+  s_b7bb973b707edc::t_dd210d110f6f8b 767
+  s_b7bb973b707edc::t_9680c7a6df9ae6 966-974
+Koren/Core/Info.cs
+  s_b7bb973b707edc::t_c71786eba4ecbd 15-21
+Koren/UI/Objects/Impl/UIColorPicker.cs
+  s_b7bb973b707edc::t_91f75ef98cc5da 123-128
+Koren/Resource/Export/Lang/en-US.json
+  s_b7bb973b707edc::t_5d684c8a3ec46f 278-280
+  s_b7bb973b707edc::t_bba78e757dd284 271
+  s_b7bb973b707edc::t_f2822ca6b3ae48 438
+  s_b7bb973b707edc::t_fa4528e68856a1 121
+  s_b7bb973b707edc::t_987b15e64a2214 463-464,466
+  s_b7bb973b707edc::t_0f01a99910628d 107
+  s_b7bb973b707edc::t_3822df61572153 525-526
+  s_b7bb973b707edc::t_1c311471ac6459 214
+Koren/Features/KeyViewer/KeyViewerSettings.cs
+  s_b7bb973b707edc::t_625421cf712f66 243
+  s_b7bb973b707edc::t_d0796e8d58a448 244
+  s_b7bb973b707edc::t_949c98cec4a801 184
+  s_b7bb973b707edc::t_7fb14b3751ef43 48-49
+  s_b7bb973b707edc::t_cd9e08055eaf98 183
+  s_b7bb973b707edc::t_a87988501a2a0a 51-53
+Koren/Features/Tweaks/TweaksPatches.cs
+  s_b7bb973b707edc::t_d47bb82a727e16 252,254,260,265
+  s_b7bb973b707edc::t_a9554ec3361457 247-251,253,255-259,261-264,266-271
+Koren/UI/Factory/Page/PageSettings.cs
+  s_b7bb973b707edc::t_6b584357c2915d 371-383,386-392
+  s_b7bb973b707edc::t_4721c59ab0edb9 384-385
+Koren/UI/Utility/ThemeExempt.cs
+  s_b7bb973b707edc::t_91384622a584b5 1-12
+Koren/IO/CoreSettings.cs
+  s_b7bb973b707edc::t_ecd73836893246 18-21
+  s_b7bb973b707edc::t_909284b9543810 107
+  s_b7bb973b707edc::t_c470e3597eb63c 85
+Koren/Koren.csproj
+  s_b7bb973b707edc::t_77dad62e26ba11 98-130
+Koren/Features/Tweaks/Tweaks.cs
+  s_b7bb973b707edc::t_02a11195d49f35 123-133,136-137,142,144-148,155-158,160-163,176-187
+  s_b7bb973b707edc::t_e17fc726744592 134-135,138-141,143,149-154,159,164-175
+Koren/Features/Restriction/RestrictionSettings.cs
+  s_b7bb973b707edc::t_87b5f2df7dd05c 21-23
+Koren/Resource/Export/Lang/ko-KR.json
+  s_b7bb973b707edc::t_2abe16b4d00e77 121
+  h_6eeb8441a8a159 12-13,357,363,428
+  s_b7bb973b707edc::t_1f40e4f6434045 107
+  s_b7bb973b707edc::t_62c9ade54e4fce 271
+  s_b7bb973b707edc::t_5ec69bceaed1a6 214
+  s_b7bb973b707edc::t_f031516903a175 525-526
+  s_b7bb973b707edc::t_69dcbe9deacc56 438
+  s_b7bb973b707edc::t_787f9a1ac03c49 278-280
+  s_b7bb973b707edc::t_f557d3087d17a6 463-464,466
+Koren/Core/KorenRuntime.cs
+  s_b7bb973b707edc::t_d7a57077fcb378 97-108
+Koren/Features/KeyLimiter/KeyLimiter.cs
+  s_b7bb973b707edc::t_d8edaf0ca4bd2e 159-169
+Koren/UI/Utility/ResizeHandle.cs
+  s_b7bb973b707edc::t_3d567b3727b263 45-59
+  s_b7bb973b707edc::t_49f99d5c03794a 1
+  s_b7bb973b707edc::t_e3d5fb256b24b2 215-220,233-235,241-243,249-251,257-259,263-266,270-273,277-280,284-287
+  s_b7bb973b707edc::t_cdf1f4151f297c 61-140
+  s_b7bb973b707edc::t_4429d99b8b7aba 301-328
+Koren/UI/Factory/Page/PageTweaks.cs
+  s_b7bb973b707edc::t_373fb9fc3186a7 3
+  s_b7bb973b707edc::t_a44443c8116fd0 114-147
+  s_b7bb973b707edc::t_ce556bfeb73174 96-97,99
+Koren/GTweens/Source/Contexts/GTweensContext.cs
+  s_b7bb973b707edc::t_f9436589409ecf 64-73
+Koren/Tween/GTweenExtensions.cs
+  s_b7bb973b707edc::t_ef198ecb408b88 1,8-15,18-23,28,30-32,43,46,55-56,64,67,75,77-79,91,93-95,106,109,116,119,126,137
+tools/release.sh
+  s_b7bb973b707edc::t_a9b5d985c7f9e2 70
+  s_b7bb973b707edc::t_0f7b5d013f630f 43-44
+  s_b7bb973b707edc::t_caac49b4f6d82a 57-63,67
+  s_b7bb973b707edc::t_52e707e5b01654 33-34
+  s_b7bb973b707edc::t_613d12357d624b 49-50
+  s_b7bb973b707edc::t_7cf65cfb004569 74
+  s_b7bb973b707edc::t_35e760f54acc39 6-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "c5c328dd1fbd59038300988b1210f83f6d3c1f7c",
+  "prompts": {},
+  "humans": {
+    "h_6eeb8441a8a159": {
+      "author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_6dc77b8c03dd8d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ec03b-f829-7301-9bcc-dddab03988e9",
+        "model": "gpt-5.5"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_b7bb973b707edc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0a52d035-b3a7-4dde-b2d6-8b9c55b595c6",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
