@@ -1,0 +1,58 @@
+Koren/Features/GameOverlayFont/GameOverlayFont.cs
+  s_8b58021c1e5f7f::t_c42a75188efc94 417,421-424,433-439
+  s_8b58021c1e5f7f::t_8f5c1ca09a1f1f 1
+  s_8b58021c1e5f7f::t_92d098b7562fb3 507-539
+  s_8b58021c1e5f7f::t_74db4bf38a2888 350-352
+  s_8b58021c1e5f7f::t_e590e4862bbd91 296-298
+  s_fedd6065ab3c09::t_b17df5fe7272a3 462-478
+Koren/Features/SongTitle/SongTitleOverlay.cs
+  s_6ae8332206b639::t_8233e26a450cd6 276-280
+  s_6ae8332206b639::t_6856165fd7df85 197,202,205-212,216,221-232
+  s_6ae8332206b639::t_ce423322468f8c 1
+  s_6ae8332206b639::t_5671f3438fdabf 203-204,213-215,217-220,233
+Koren/UI/Utility/TMPTextShadow.cs
+  s_6ae8332206b639::t_11eba2b7994556 1
+  s_6ae8332206b639::t_79c423abcb0eac 186-190,200-203,212-221
+Koren/Features/KeyViewer/KeyViewerOverlay.cs
+  s_623ab683fe176c::t_10ed0c4f5f3acf 1587-1591,1596
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "710234fbb1abf6d5cccc00cb1990e3c76b6be035",
+  "prompts": {},
+  "sessions": {
+    "s_623ab683fe176c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c9dd4071-475f-454a-b719-e427c4f1652e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_6ae8332206b639": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "566bcaf1-5daa-4760-8186-eb2ac163dae7",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_8b58021c1e5f7f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc334a24-35c7-404a-91cf-bfec06921ac9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_fedd6065ab3c09": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "85a76d1c-6e76-4308-a3e3-08bd24466fdd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
