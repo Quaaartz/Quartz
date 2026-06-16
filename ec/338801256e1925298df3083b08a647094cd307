@@ -1,0 +1,44 @@
+Koren/UI/Utility/TMPTextShadow.cs
+  s_592bbf0f1ae86e::t_aca0defc663c7d 18-19,34-49
+Koren/Features/KeyViewer/KeyViewerOverlay.cs
+  s_e3d6fa90482c37::t_8e775f907c029b 1264
+Koren/Features/PlayCount/PlayCount.cs
+  s_320ce2c9f9f07b::t_3305303dab5138 212,215,231-233,235-241,248-253,258,262-265,268,271,280-314
+  s_320ce2c9f9f07b::t_be0b2825a2aac6 209-211,216-224,226,228,230,234,244-247
+Koren/Features/KeyLimiter/KeyLimiter.cs
+  s_e3d6fa90482c37::t_366d07466e3224 172-187
+Koren/Features/SongTitle/SongTitleOverlay.cs
+  s_592bbf0f1ae86e::t_f90517ee3ed1a3 156-160
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "ec338801256e1925298df3083b08a647094cd307",
+  "prompts": {},
+  "sessions": {
+    "s_320ce2c9f9f07b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c1ca04c3-7033-4308-a8cc-e14ad121563f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_592bbf0f1ae86e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9c190d92-83f0-4a86-b784-913e70bb20c5",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_e3d6fa90482c37": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0e0d6553-7e65-475d-bec8-66890afd038c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
