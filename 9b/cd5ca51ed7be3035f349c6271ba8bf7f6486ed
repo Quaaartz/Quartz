@@ -1,0 +1,85 @@
+test.sh
+  s_f0bc066dafbf81::t_36815c0fb4d139 1-5
+build.sh
+  s_f0bc066dafbf81::t_b961b06944aea5 66
+  s_f0bc066dafbf81::t_53f143ec3303c9 65
+.gitignore
+  s_f0bc066dafbf81::t_b961b06944aea5 5
+Koren/Features/GameOverlayFont/GameOverlayFont.cs
+  s_f0bc066dafbf81::t_9f8d2316ef1be6 399,404,422-424,448-455,579
+  s_f0bc066dafbf81::t_863546b6770b67 88,93
+Koren/Resource/Export/Lang/en-US.json
+  s_f0bc066dafbf81::t_b961b06944aea5 174
+global.json
+  s_f0bc066dafbf81::t_36815c0fb4d139 1-6
+Koren/Features/Panels/PanelsOverlay.cs
+  s_f0bc066dafbf81::t_43dd9cfad469be 101-104,110-115,119,203,427,429-431,436-443,446,450,455-472,532-535,583,588-594,615,620-632
+  s_f0bc066dafbf81::t_5adfedbdbb66c4 105-109,116-118
+  s_f0bc066dafbf81::t_556815899f89f4 562-563
+Koren/Features/AutoDeafen/AutoDeafen.cs
+  s_f0bc066dafbf81::t_73bed440af98b9 2,204-212
+Koren/UI/UICore.cs
+  s_f0bc066dafbf81::t_9f8d2316ef1be6 847-848,858-861,867-875
+  s_f0bc066dafbf81::t_c3d160496c532f 891-896
+.editorconfig
+  s_f0bc066dafbf81::t_36815c0fb4d139 1-21
+Koren/Features/Status/GameStats.cs
+  s_f0bc066dafbf81::t_d86c08509a3980 304-309,312-313,327-328,333-334
+Koren.slnx
+  s_f0bc066dafbf81::t_36815c0fb4d139 9
+Koren/IO/SettingsFile.cs
+  s_f0bc066dafbf81::t_70436dd3b57c2a 40-41,43,45
+  s_f0bc066dafbf81::t_5856622c434da3 2,119,122,133,161,165-166,168-170,172-174,185,187-188,195,202-205,222
+  s_f0bc066dafbf81::t_0551632f5216be 72,120-121,123,153-160,163-164,175-180,183-184,186,189-194,196-199,201,208-215
+Koren/Koren.csproj
+  s_f0bc066dafbf81::t_b961b06944aea5 17,20,29-36,147-148
+  s_f0bc066dafbf81::t_36815c0fb4d139 6
+  s_f0bc066dafbf81::t_863546b6770b67 18
+  s_f0bc066dafbf81::t_53f143ec3303c9 149,155-156
+Koren/Features/PlayCount/PlayCount.cs
+  s_f0bc066dafbf81::t_6055beec29cb42 8
+  s_f0bc066dafbf81::t_9c17707bf48c69 327,374-377
+  s_f0bc066dafbf81::t_ce3507fbe9e999 433
+  s_f0bc066dafbf81::t_556815899f89f4 248-249,286-287
+  s_f0bc066dafbf81::t_f5b428a944b4d6 5,250-252,282-284,288,295-302,305-315,321-326,328-366
+Koren.Tests/Koren.Tests.csproj
+  s_f0bc066dafbf81::t_36815c0fb4d139 1-14
+Koren/UI/Factory/Page/PageOverlay.cs
+  s_f0bc066dafbf81::t_43dd9cfad469be 1210-1211
+Koren/IO/AtomicFile.cs
+  s_f0bc066dafbf81::t_6ff6917d23e067 20,26,36,46,51,53
+  s_f0bc066dafbf81::t_c21a68ad46d235 1-2
+  s_f0bc066dafbf81::t_5856622c434da3 3-19,21-25,27-35,37-45,47-50,52,54-58
+README.md
+  s_f0bc066dafbf81::t_36815c0fb4d139 3-57
+Koren/Features/AutoDeafen/DiscordOAuthServer.cs
+  s_f0bc066dafbf81::t_dba77cddfb519d 77-83,192-194,372-375
+Koren/IO/ProfileManager.cs
+  s_f0bc066dafbf81::t_65537455c3bae7 415-417
+  s_f0bc066dafbf81::t_6b45b7bf064bd9 496
+  s_f0bc066dafbf81::t_9bd3123b18e0bd 289,299,302-303,398,407,409-414,418-419,423-450
+  s_f0bc066dafbf81::t_ce3507fbe9e999 24-27,164-166,168,174-178,189,191,195,197-198,206-218,222-225,262,295,520-561,565
+  s_f0bc066dafbf81::t_70436dd3b57c2a 143,145-147,149,152,170-172
+  s_f0bc066dafbf81::t_66837caa206042 41,452-475
+  s_f0bc066dafbf81::t_cf3fd07d1b089d 109-111,240-242
+  s_f0bc066dafbf81::t_671850bdbcbbc1 69,420-422
+  s_f0bc066dafbf81::t_f5722c30ddae46 33-34,42,167,179-180,200,219-221,476-495,497-519
+Koren.Tests/Program.cs
+  s_f0bc066dafbf81::t_36815c0fb4d139 1-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "9bcd5ca51ed7be3035f349c6271ba8bf7f6486ed",
+  "prompts": {},
+  "sessions": {
+    "s_f0bc066dafbf81": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019edf69-3bae-7131-a19c-0aea259e1989",
+        "model": "gpt-5.5"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
