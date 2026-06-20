@@ -1,0 +1,21 @@
+Koren/UI/Factory/Page/PageGameplay.cs
+  s_f5cd5ba9eb06ac::t_93b04b37c5d927 4,470-473,498-499,594
+Koren/Features/Restriction/Restriction.cs
+  s_f5cd5ba9eb06ac::t_93b04b37c5d927 3,101-113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "94ba7d6eed8e24c68835c6f89eb0d0e75755a41e",
+  "prompts": {},
+  "sessions": {
+    "s_f5cd5ba9eb06ac": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f4f394ae-8c02-470d-a25c-3195f6d9a54e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
