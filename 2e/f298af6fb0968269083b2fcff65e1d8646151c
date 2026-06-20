@@ -1,0 +1,25 @@
+Koren.Tests/Koren.Tests.csproj
+  s_c67afe1f691de8::t_b59b0ccd96881e 13
+Koren.Tests/Program.cs
+  s_c67afe1f691de8::t_751909d1a0bdef 119-125
+  s_c67afe1f691de8::t_5801c9ac291c96 64-118,126-154,217-221
+  s_c67afe1f691de8::t_677a02f6f08571 155-216
+  s_c67afe1f691de8::t_664e9da4a79233 11
+  s_c67afe1f691de8::t_05cfce47f8baa3 3,10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "2ef298af6fb0968269083b2fcff65e1d8646151c",
+  "prompts": {},
+  "sessions": {
+    "s_c67afe1f691de8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6aaa7677-b937-48c2-8685-3a1a1248cedc",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
