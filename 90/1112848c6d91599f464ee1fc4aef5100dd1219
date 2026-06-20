@@ -1,0 +1,26 @@
+Koren/Features/Panels/PanelsOverlay.cs
+  s_40a783f4b9f505::t_8a010bfd591295 286-293
+Koren/Resource/Export/Lang/en-US.json
+  s_40a783f4b9f505::t_3693f720924c5f 107
+Koren/UI/Factory/Page/PageOverlay.cs
+  s_40a783f4b9f505::t_7a360172c85b15 1227-1498
+  s_40a783f4b9f505::t_70f9b6afadc11d 228-233
+Koren/Resource/Export/Lang/ko-KR.json
+  s_40a783f4b9f505::t_580224e503d309 107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "901112848c6d91599f464ee1fc4aef5100dd1219",
+  "prompts": {},
+  "sessions": {
+    "s_40a783f4b9f505": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5d2d8613-5972-4f06-9539-8562b4379c4a",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
