@@ -1,0 +1,29 @@
+Koren/UI/Factory/PageFactory.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 35
+Koren/UI/Factory/Page/PageSearch.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 140
+Koren/UI/Factory/MenuFactory.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 53,75-76
+Koren/UI/UICore.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 30
+Koren/Features/Interop/SettingsImporter.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 1-1665
+Koren/UI/Factory/Page/PageImport.cs
+  s_f5cd5ba9eb06ac::t_1f85d5b5c3462d 1-287
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "421239540b4f2c6729326bee5e20983af8bc20c6",
+  "prompts": {},
+  "sessions": {
+    "s_f5cd5ba9eb06ac": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f4f394ae-8c02-470d-a25c-3195f6d9a54e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
