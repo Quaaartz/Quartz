@@ -1,0 +1,20 @@
+agents/release.md
+  s_1ffba1e55cca3d::t_f7a19754412c9d 37-38,40-43
+  s_1ffba1e55cca3d::t_ee4e7dfc9b7f48 50,55-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "6a7a5ca2e51d4438c6683271a01cc91b24e87bb6",
+  "prompts": {},
+  "sessions": {
+    "s_1ffba1e55cca3d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f708efb4-81cb-4e98-bbfe-adf52df3f95b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
