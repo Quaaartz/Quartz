@@ -1,0 +1,66 @@
+Koren/Features/Editor/EditorFloorReadout.cs
+  s_941d24de3a6f13::t_dd7a6c945fed91 281-294,298
+  s_941d24de3a6f13::t_dc7a51699ed50f 5-10,15-26,28-40,42-43,47,49-50,76,83-86,100,106,123-124,128,132-144,146-198,200,301,351-356
+  s_941d24de3a6f13::t_89d41088e6d07c 3-4,14,45,48,58-73,77-81,88-99,101-104,125-126,129-130,145,199,201-237,267-280,295-297,299-300,302-350,357-358
+  s_941d24de3a6f13::t_db5adb25e09826 105,107-122
+  s_941d24de3a6f13::t_3cd66cde2f8e19 41,51-56
+  s_941d24de3a6f13::t_29ab427e7eb534 27
+  s_941d24de3a6f13::t_58559550cf3bf8 238-266
+Koren/Features/Editor/EditorBgaMod.cs
+  s_630648873bfd04::t_94b32274bdf454 26-40
+  s_630648873bfd04::t_c19ef132cef836 1-25,41-58,60-79,82-85,93,95-178,243
+  s_630648873bfd04::t_354ccad6526531 59,80-81,86-92,94
+  s_630648873bfd04::t_8025088c3218cc 179-242
+Koren/Features/Editor/Editor.cs
+  s_941d24de3a6f13::t_91e650491de053 85
+  s_941d24de3a6f13::t_616a0670967e7a 67,75
+  s_941d24de3a6f13::t_16026351bf0f28 13-18
+  s_630648873bfd04::t_bd6d356d1b1148 86
+  s_630648873bfd04::t_4715df880dac06 68,76
+Koren/UI/Factory/Page/PageEditor.cs
+  s_630648873bfd04::t_e467124583be05 175-179,182,184-195
+  s_630648873bfd04::t_e24a24e68f1127 196
+  s_aa7fbfd666db54::t_39b84ed3a7a691 232-233
+  s_630648873bfd04::t_741bb9c1721925 198-231
+  s_941d24de3a6f13::t_d74d2e0cdaf2d0 85-159,161-162,164,168-173
+Koren/Features/Editor/EditorSettings.cs
+  s_630648873bfd04::t_69648dd95b7940 44-45
+  s_630648873bfd04::t_0aee7025bcf0b1 59
+  s_630648873bfd04::t_d1f92221ea9596 60-61
+  s_630648873bfd04::t_652f2c67673e9c 25,28
+  s_941d24de3a6f13::t_20fef07a3ad26a 14-20,22-23,32-33,38-42,54-58
+  s_630648873bfd04::t_7b5c86b0216b07 43
+  s_630648873bfd04::t_90f94312bc367d 26-27,29-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "013ae6b5de6015183ad5aef8f6eb309946d3a011",
+  "prompts": {},
+  "sessions": {
+    "s_630648873bfd04": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0b3dcbc3-cef0-4dbe-aa31-84ae040398e3",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_941d24de3a6f13": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "32c1a0a8-1ebc-438d-a8fe-40a974edf219",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_aa7fbfd666db54": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f97f531e-3ca1-4cc8-8473-fa32ec59b96e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
