@@ -1,0 +1,21 @@
+Quartz/Core/QuartzRuntime.cs
+  s_5bed0999192059::t_3fd81d43eb6caf 133-164,176-187,250-256
+Quartz/Update/UpdateService.cs
+  s_5bed0999192059::t_3fd81d43eb6caf 146,163,190,197-201,276-310,413-437
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "a38985ff936a232e7090b2c81f8f8c9e695f67ee",
+  "prompts": {},
+  "sessions": {
+    "s_5bed0999192059": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "911621d2-98ba-4759-93f2-3de908c5fb63",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
