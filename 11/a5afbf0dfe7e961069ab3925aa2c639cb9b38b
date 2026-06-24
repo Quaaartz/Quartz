@@ -1,0 +1,57 @@
+Quartz/Features/Optimizer/Optimizer.cs
+  s_e3fcb3038d72e5::t_613b63fa107c6c 62-65
+build.sh
+  s_e3fcb3038d72e5::t_1a1398e3135227 65-66,68-83
+Quartz/Core/MainCore.cs
+  s_e3fcb3038d72e5::t_e64c92146d0d01 41-45,47-57,71-73
+Quartz/Loader.cs
+  s_e3fcb3038d72e5::t_e18a61558c28eb 1-5
+  s_e3fcb3038d72e5::t_d5d49b72d2d9b8 32-33,39,42,53
+  s_e3fcb3038d72e5::t_7de1a2caf6bf5f 37-38,40-41
+Quartz/Compat/Interface/IQuartzHost.cs
+  s_e3fcb3038d72e5::t_abfa592b2f5f4e 6-10,14,18-19,21
+  s_e3fcb3038d72e5::t_f9db98e35efcd1 15,20,22-31
+Quartz/Resource/Umm/Info.json
+  s_e3fcb3038d72e5::t_5195a5aae722d9 1-6,8
+  s_e3fcb3038d72e5::t_70527b676db3c9 7
+Quartz/Update/UpdateService.cs
+  s_e3fcb3038d72e5::t_711a8b83cedd32 252-258
+  s_e3fcb3038d72e5::t_b274b00090398b 356-362,364,366
+  s_e3fcb3038d72e5::t_c5fa36f5a0c21b 124-130
+  s_e3fcb3038d72e5::t_0a8cda40ea194d 212-217,223,225
+Quartz/Core/QuartzRuntime.cs
+  s_e3fcb3038d72e5::t_21032bdc565945 294-302
+  s_e3fcb3038d72e5::t_3e01e93516e33d 264-268
+  s_e3fcb3038d72e5::t_71b57d911b6725 82-85
+  s_e3fcb3038d72e5::t_08937e2380c574 68-72
+  s_e3fcb3038d72e5::t_5cb34470d52010 100-102,105-110
+  s_e3fcb3038d72e5::t_89dac13652fd26 251-252
+  s_e3fcb3038d72e5::t_496bd3f85a77bf 269-274
+Quartz/LoaderUmm.cs
+  s_e3fcb3038d72e5::t_d3025784123264 37-46,60-62,64-65
+  s_e3fcb3038d72e5::t_504c96c529e973 1-36,47-59,63,66-80,89-94
+  s_e3fcb3038d72e5::t_344640d34423de 81-88
+Quartz/Quartz.csproj
+  s_e3fcb3038d72e5::t_4afa4a26870a4b 217-246,248-270
+  s_e3fcb3038d72e5::t_ff7c712221fd46 188-189
+  s_e3fcb3038d72e5::t_e4be74577b68d8 22-28,36-52
+  s_e3fcb3038d72e5::t_46837fa81739b8 67-69,72-73,77-85
+  s_e3fcb3038d72e5::t_a80b78aa0e59f8 197
+  s_e3fcb3038d72e5::t_ed26ead18c94b5 247
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "11a5afbf0dfe7e961069ab3925aa2c639cb9b38b",
+  "prompts": {},
+  "sessions": {
+    "s_e3fcb3038d72e5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "97b99a6f-a010-4566-9a37-7a16ea09b064",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
