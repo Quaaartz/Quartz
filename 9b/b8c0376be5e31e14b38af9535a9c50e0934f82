@@ -1,0 +1,85 @@
+Quartz/Features/Recorder/RecorderSettings.cs
+  s_cca67e589ae068::t_355c13186dd597 50-53
+  s_cca67e589ae068::t_dc7c431965898d 93
+  s_cca67e589ae068::t_a30070301c5abd 115
+  s_cca67e589ae068::t_5749560dfd183f 49,54
+  s_cca67e589ae068::t_f4c21a71096130 92
+  s_cca67e589ae068::t_2a3faf7f16d0fd 116
+  s_cca67e589ae068::t_f8f6283848d30f 55-63
+Quartz/Features/Recorder/RecorderSession.cs
+  s_cca67e589ae068::t_52db7a61df79d0 218-222,239-242,246-249
+  s_cca67e589ae068::t_162c831764780a 266,942-944,947-948,952-953,956-958,960-962,1003-1007,1009-1010
+  s_cca67e589ae068::t_e71cb87f931ce0 396-398,400,408-411,415,417-422
+  s_cca67e589ae068::t_b6158dead78d56 186-187
+  s_cca67e589ae068::t_5f7ee14e30501f 83
+  s_cca67e589ae068::t_35cc7f8a70b6f8 283
+  s_cca67e589ae068::t_35e46f12cee826 663,665-676,688,690-693
+  s_cca67e589ae068::t_49950fce838510 527
+  s_cca67e589ae068::t_6bb98c872a9c67 95-100
+  s_cca67e589ae068::t_b97abec98ba6f1 945-946,949-951,954-955,959,963-968,970-1002,1008
+  s_cca67e589ae068::t_43606ce15847c5 135-146,148-152,154-164
+  s_cca67e589ae068::t_c792efd0ae6840 506-513,519-525,528-560,579-587,597-614,625-638,643-657
+  s_cca67e589ae068::t_7e3b020920f171 526
+  s_cca67e589ae068::t_b6fa5ccbd64db0 224-236
+  s_cca67e589ae068::t_9b99ff918a4c63 615-624
+  s_cca67e589ae068::t_c6e2d66d32bb87 1014-1021,1033-1038
+  s_cca67e589ae068::t_b739c1d1b7cf85 514-518
+  s_cca67e589ae068::t_06d7a7eccea47c 49-50
+  s_cca67e589ae068::t_1c61604d0591cb 561-578
+  s_cca67e589ae068::t_0895efe36f804c 268-282,284-392
+  s_cca67e589ae068::t_c6c389020448ab 588-596
+  s_cca67e589ae068::t_c68ef5caac51d4 639-642
+  s_cca67e589ae068::t_8270170b6c4106 153
+  s_cca67e589ae068::t_83fe6cf89d3399 810
+  s_cca67e589ae068::t_a0b9f9e19edf46 1039,1149-1152
+  s_cca67e589ae068::t_7e6ce71bf5538c 791-793
+  s_cca67e589ae068::t_036bbb629177f2 93-94
+  s_cca67e589ae068::t_7b5f89f9ba2090 664,685-686
+  s_cf50ce232d5419::t_387ca6fdd09b03 969
+  s_cca67e589ae068::t_41661cebb8bce9 416
+  s_cca67e589ae068::t_a99385729d97f5 132-134,147,165
+  s_cca67e589ae068::t_b4b7fe260944f9 1164
+  s_cca67e589ae068::t_5273c7aa58d651 263-265
+  s_cca67e589ae068::t_559dfa68dcc3af 1145-1148
+  s_cca67e589ae068::t_fba88032837b98 91
+  s_cca67e589ae068::t_bdfd79704bc568 86-90,92
+Quartz/Features/Recorder/Recorder.cs
+  s_cca67e589ae068::t_95c800ed28c09c 179,190,196-231
+Quartz/Features/Recorder/AutoHitSnap.cs
+  s_cca67e589ae068::t_c4676f44f47d35 105,116
+  s_cca67e589ae068::t_cdbd5ec1cfaa3b 53-57,59
+  s_cca67e589ae068::t_381c6dc373f5d5 139,145-146
+  s_cca67e589ae068::t_89cd885fb3220a 148-152
+  s_cca67e589ae068::t_a1dd1c88fd8098 64-65,73-81,83,86,93
+  s_cca67e589ae068::t_b116ceff23ab86 1-52,60-63,66-72,84-85,87-92,99-104,106-115,117-138,140-144,147,153-167
+  s_cca67e589ae068::t_d7e32d22e64f69 82,94-98
+  s_cca67e589ae068::t_4d13dbc2949062 58
+Quartz/Features/Recorder/RecorderAudioTap.cs
+  s_cca67e589ae068::t_4fd61820e37cbe 20-23,25-31,35,37-41,52-54
+  s_cca67e589ae068::t_bd479d57b19e44 1-7,11-19,24,32-34,36,42-51,55-74
+  s_cca67e589ae068::t_02457502c10646 8-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "9bb8c0376be5e31e14b38af9535a9c50e0934f82",
+  "prompts": {},
+  "sessions": {
+    "s_cca67e589ae068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3697d5b1-e01c-43b9-b10d-e22464f087cc",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_cf50ce232d5419": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7a7af13-c87f-47ca-8868-33a32289fb08",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
