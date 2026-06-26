@@ -1,0 +1,21 @@
+Quartz/Features/Optimizer/Optimizer.cs
+  s_e8fdd3690b7921::t_86a3b1692106ee 40,43-48
+  s_e8fdd3690b7921::t_3821a8f73c457e 28-34
+  s_e8fdd3690b7921::t_6e5ae236c157f7 177-181,189-205,207,213,219-225,228
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "c9869ef5d0c0ac12dc474caa353c12c01f31334d",
+  "prompts": {},
+  "sessions": {
+    "s_e8fdd3690b7921": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb5c8d2d-d74e-49aa-92c0-08f831a5137b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
