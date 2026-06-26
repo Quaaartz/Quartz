@@ -1,0 +1,20 @@
+Quartz/Features/SongTitle/SongTitleOverlay.cs
+  s_e8fdd3690b7921::t_866f8755c06928 219-224
+  s_e8fdd3690b7921::t_b22ef7ef07bf3c 44-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "277d01813fd2ff793cb0e21ae0ada464557bdcc9",
+  "prompts": {},
+  "sessions": {
+    "s_e8fdd3690b7921": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb5c8d2d-d74e-49aa-92c0-08f831a5137b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
