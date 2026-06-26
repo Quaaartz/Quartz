@@ -1,0 +1,22 @@
+Quartz/Features/PlanetColors/PlanetColors.cs
+  s_e8fdd3690b7921::t_021c5255e48eb8 60-68
+  s_e8fdd3690b7921::t_88609b6c8ad1bd 471-500
+  s_e8fdd3690b7921::t_58e865a4ed44f3 437,442
+  s_e8fdd3690b7921::t_314f2f71af2dda 501
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "2a5cb81ea5b20b3e5eb0c74c226c2f8941741f68",
+  "prompts": {},
+  "sessions": {
+    "s_e8fdd3690b7921": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb5c8d2d-d74e-49aa-92c0-08f831a5137b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
