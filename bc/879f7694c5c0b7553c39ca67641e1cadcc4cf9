@@ -1,0 +1,20 @@
+Quartz/Features/Editor/EditorBgaMod.cs
+  s_e8fdd3690b7921::t_9744febf16ca2a 165-173,179-180
+  s_e8fdd3690b7921::t_ac7607e5dc820f 181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "bc879f7694c5c0b7553c39ca67641e1cadcc4cf9",
+  "prompts": {},
+  "sessions": {
+    "s_e8fdd3690b7921": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb5c8d2d-d74e-49aa-92c0-08f831a5137b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
