@@ -1,0 +1,19 @@
+Quartz/UI/Factory/Page/PageEditorRenderer.cs
+  s_047ee69fcba669::t_56aef9d7513210 278-285,290-311
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "fd81578b5a40b0956373f0561768a2d766cb7a3a",
+  "prompts": {},
+  "sessions": {
+    "s_047ee69fcba669": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f484365d-43c1-4cec-bc95-d303892e36e0",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
