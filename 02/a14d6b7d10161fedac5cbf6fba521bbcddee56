@@ -1,0 +1,28 @@
+Quartz/Features/Optimizer/Optimizer.cs
+  s_e8fdd3690b7921::t_f453bddc8bebbd 6
+  s_e8fdd3690b7921::t_7e5f41e1435fdf 115-119
+Quartz/Features/Optimizer/OptimizerSettings.cs
+  s_e8fdd3690b7921::t_ceb8e8fcf943f3 51-59,69,81
+Quartz/UI/Utility/TMPTextShadow.cs
+  s_e8fdd3690b7921::t_b0f6d74acfe222 53-54,329-362
+  s_e8fdd3690b7921::t_81cb2dd896da01 44-52
+  s_e8fdd3690b7921::t_b0a59874714d81 14-25
+  s_e8fdd3690b7921::t_2b1d6c30a05895 55
+  s_e8fdd3690b7921::t_f3d3a55bdb1231 363-364
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "02a14d6b7d10161fedac5cbf6fba521bbcddee56",
+  "prompts": {},
+  "sessions": {
+    "s_e8fdd3690b7921": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bb5c8d2d-d74e-49aa-92c0-08f831a5137b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
