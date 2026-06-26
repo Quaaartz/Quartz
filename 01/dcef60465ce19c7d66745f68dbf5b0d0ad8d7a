@@ -1,0 +1,19 @@
+Quartz/IO/SettingsFile.cs
+  s_047ee69fcba669::t_f90b51bbfab563 169-172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "01dcef60465ce19c7d66745f68dbf5b0d0ad8d7a",
+  "prompts": {},
+  "sessions": {
+    "s_047ee69fcba669": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f484365d-43c1-4cec-bc95-d303892e36e0",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
