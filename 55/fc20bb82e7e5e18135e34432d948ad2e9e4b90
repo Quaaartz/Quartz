@@ -1,0 +1,20 @@
+Quartz/Features/Recorder/Native/QuartzNativeLibrary.cs
+  s_c76e08335c3fd0::t_a82561a061d16e 37-47
+  s_c76e08335c3fd0::t_c9eebb356413a8 80-94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "55fc20bb82e7e5e18135e34432d948ad2e9e4b90",
+  "prompts": {},
+  "sessions": {
+    "s_c76e08335c3fd0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fefdf0f1-157a-4654-bf47-644755921496",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
