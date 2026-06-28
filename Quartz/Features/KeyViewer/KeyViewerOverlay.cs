@@ -871,18 +871,28 @@ public static partial class KeyViewerOverlay {
         List<DmNoteSpec> specs = ParseDmNoteSpecs();
         root.sizeDelta = new Vector2(dmCanvasWidth, dmCanvasHeight);
 
-        // Key paint order follows the preset's key order: an earlier key in the JSON
-        // overlaps a later one (e.g. R before T -> R draws over T). Unity paints later
-        // siblings on top, so create the KEY boxes back-to-front — the first key ends up
-        // created last and therefore topmost. Stats and graphs (which ParseDmNoteSpecs
-        // appends after the keys) are built afterwards in natural order, so they stay on
-        // top of the keys as before. index is just the GameObject name / graph id; box
-        // identity is spec.KeyCode, so reordering creation can't disturb key->count.
+        // Key paint order, two levels: a TOP-row key (smaller Y on screen) draws over a
+        // bottom-row key, and within one row the earlier preset key draws over the later
+        // one (so R before T in the JSON -> R over T, same row). Unity paints later
+        // siblings on top, so create bottom-to-top: largest Y first, and within equal Y
+        // the later JSON index first — the smallest-Y / earliest-JSON key ends up created
+        // last and therefore topmost. Stats and graphs (appended after the keys by
+        // ParseDmNoteSpecs) are built afterwards, staying above the keys as before. index
+        // is only the GameObject name / graph id; box identity is spec.KeyCode, so
+        // reordering creation can't disturb key->count.
         int keyCount = 0;
         while(keyCount < specs.Count && !specs[keyCount].IsStat && !specs[keyCount].IsGraph) {
             keyCount++;
         }
-        for(int i = keyCount - 1; i >= 0; i--) {
+        int[] keyOrder = new int[keyCount];
+        for(int i = 0; i < keyCount; i++) {
+            keyOrder[i] = i;
+        }
+        System.Array.Sort(keyOrder, (a, b) => {
+            int byRow = specs[b].Y.CompareTo(specs[a].Y);   // larger Y (bottom row) first
+            return byRow != 0 ? byRow : b.CompareTo(a);      // same row: later JSON index first
+        });
+        foreach(int i in keyOrder) {
             AddDmNoteBox(i, specs[i]);
         }
         for(int i = keyCount; i < specs.Count; i++) {
