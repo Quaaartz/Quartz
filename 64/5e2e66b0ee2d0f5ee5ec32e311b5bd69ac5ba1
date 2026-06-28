@@ -1,0 +1,21 @@
+Quartz/Features/Panels/PanelsOverlay.cs
+  s_1ae6f317b929f6::t_caa0d0f07aa934 498-501,503-506
+  s_1ae6f317b929f6::t_5430d4a5c43629 502
+  s_1ae6f317b929f6::t_aab7270f1afaba 436-441
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "645e2e66b0ee2d0f5ee5ec32e311b5bd69ac5ba1",
+  "prompts": {},
+  "sessions": {
+    "s_1ae6f317b929f6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "237265ec-42b3-43e7-b4a2-337967883d36",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
