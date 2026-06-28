@@ -45,6 +45,14 @@ internal static class DiscordOAuthServer {
     }
 
     internal static void Stop() {
+        // The idle AutoDeafen ticker calls this every frame while the feature is
+        // disabled (its only teardown path). When nothing is running, StopLocked()
+        // is all no-ops, so skip the lock entirely. `running` is volatile and read
+        // lock-free by the Running property; this is behaviorally identical.
+        if(!running) {
+            status = "oauth off";
+            return;
+        }
         lock(gate) {
             StopLocked();
             status = "oauth off";
