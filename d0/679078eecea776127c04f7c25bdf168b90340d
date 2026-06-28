@@ -1,0 +1,24 @@
+Quartz/UI/Factory/Page/PageProfiles.cs
+  s_efec2f6a0e45bf::t_d01df524a8379a 306-307,310-326
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "d0679078eecea776127c04f7c25bdf168b90340d",
+  "prompts": {},
+  "humans": {
+    "h_6eeb8441a8a159": {
+      "author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_efec2f6a0e45bf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e79d33b0-234c-44e8-855d-e80a9cd829dd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
