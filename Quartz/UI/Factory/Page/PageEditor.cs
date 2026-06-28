@@ -230,9 +230,6 @@ internal static partial class PageEditor {
             "Also hides decorations attached to a planet while BGA Mod is hiding the level. Background and camera-anchored decorations are left visible."
         );
 
-        // === FFmpeg Renderer ===
-        CreateRendererSection(content.transform);
-
         NostalgiaUI.AddEditorSection(content.transform);
     }
 }

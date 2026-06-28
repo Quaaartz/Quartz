@@ -400,7 +400,6 @@ public sealed class QuartzRuntime {
             Optimizer.Restore();
             GameOverlayFont.Restore();
             EditorFeature.Restore();
-            Features.Recorder.Recorder.Restore();
             Nostalgia.Restore();
             Features.AutoDeafen.AutoDeafen.Stop();
 
