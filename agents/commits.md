@@ -40,6 +40,9 @@ Pick by intent, not by file: a localization-key add is `chore`, a parser test is
 
 Subject-only is the norm. Add a blank line + body only when the **why** isn't obvious from the diff — explain the reason, not the mechanics. Don't restate the subject.
 
+## Including yourself
+I get you want to include yourself in the commits, but can u just not? do not put @claude as one of the collaborators while commiting.
+
 ## Splitting: split a lot
 
 One logical change per commit. A working tree with many unrelated edits becomes many commits, not one. Default to fine-grained.
