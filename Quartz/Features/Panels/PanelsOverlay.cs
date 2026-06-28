@@ -433,6 +433,12 @@ public static class PanelsOverlay {
         // re-measure when appearance changed but the body string did not.
         public string LastBody;
         public bool Dirty = true;
+
+        // Cached EffectiveSeparator result. SeparatorSource is the raw LabelSeparator
+        // it was built from, so UpdatePanel recomputes only when the setting changes
+        // (otherwise the 1-char default " x " string was re-allocated each refresh).
+        public string SeparatorSource;
+        public string Separator;
     }
 
     private sealed class Updater : MonoBehaviour {
@@ -489,10 +495,15 @@ public static class PanelsOverlay {
 
             if(show) {
                 PanelConfig c = p.Config;
-                // Loop-invariant: the separator depends only on c.LabelSeparator
-                // (never mutated per frame), so build it once instead of allocating
-                // an identical " x " string per labeled stat each refresh.
-                string separator = EffectiveSeparator(c.LabelSeparator);
+                // The separator depends only on c.LabelSeparator (a settings value,
+                // never mutated per frame). Cache it on the panel keyed on the raw
+                // source so EffectiveSeparator (which allocates " x " for the 1-char
+                // default) runs only when the setting actually changes.
+                if(p.Separator == null || p.SeparatorSource != c.LabelSeparator) {
+                    p.SeparatorSource = c.LabelSeparator;
+                    p.Separator = EffectiveSeparator(c.LabelSeparator);
+                }
+                string separator = p.Separator;
                 if(!string.IsNullOrEmpty(c.Prefix)) {
                     sb.AppendLine(c.Prefix);
                 }
