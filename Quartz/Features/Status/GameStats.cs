@@ -31,6 +31,12 @@ public static class GameStats {
     private static float mapRatioValue;
     private static int mapTotalFrame = -1;
     private static float mapTotalValue;
+    private static int songArtistFrame = -1;
+    private static string songArtistValue = "";
+    private static int songTitleFrame = -1;
+    private static string songTitleValue = "";
+    private static int songTitleRawFrame = -1;
+    private static string songTitleRawValue = "";
 
     // True only while actually playing a level (the dance-floor world is live).
     public static bool InGame {
@@ -207,22 +213,32 @@ public static class GameStats {
     // poll every frame.
     public static string SongArtist {
         get {
+            int frame = Time.frameCount;
+            if(songArtistFrame == frame) {
+                return songArtistValue;
+            }
+            songArtistFrame = frame;
             try {
                 var g = scnGame.instance;
-                return g != null && g.levelData != null ? g.levelData.artist ?? "" : "";
+                return songArtistValue = g != null && g.levelData != null ? g.levelData.artist ?? "" : "";
             } catch {
-                return "";
+                return songArtistValue = "";
             }
         }
     }
 
     public static string SongTitle {
         get {
+            int frame = Time.frameCount;
+            if(songTitleFrame == frame) {
+                return songTitleValue;
+            }
+            songTitleFrame = frame;
             try {
                 var g = scnGame.instance;
-                return g != null && g.levelData != null ? g.levelData.song ?? "" : "";
+                return songTitleValue = g != null && g.levelData != null ? g.levelData.song ?? "" : "";
             } catch {
-                return "";
+                return songTitleValue = "";
             }
         }
     }
@@ -231,11 +247,16 @@ public static class GameStats {
     // fallback when the separate author/song metadata isn't available.
     public static string SongTitleRaw {
         get {
+            int frame = Time.frameCount;
+            if(songTitleRawFrame == frame) {
+                return songTitleRawValue;
+            }
+            songTitleRawFrame = frame;
             try {
                 scrController c = scrController.instance;
-                return c != null && c.txtLevelName != null ? c.txtLevelName.text ?? "" : "";
+                return songTitleRawValue = c != null && c.txtLevelName != null ? c.txtLevelName.text ?? "" : "";
             } catch {
-                return "";
+                return songTitleRawValue = "";
             }
         }
     }
