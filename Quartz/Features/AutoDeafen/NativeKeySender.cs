@@ -25,6 +25,17 @@ internal static class NativeKeySender {
             return;
         }
 
+        // Tell the game's input funnel to ignore this chord for a short window
+        // and open the SkyHook suppression bypass, so the synthetic presses reach
+        // Discord without registering as gameplay hits. Mark the modifier
+        // keycodes too — Shift is a real ADOFAI gameplay key, and the others are
+        // harmless to list. (Meta/Win isn't a gameplay key, so it's skipped.)
+        List<KeyCode> chord = [key];
+        if(ctrl) { chord.Add(KeyCode.LeftControl); chord.Add(KeyCode.RightControl); }
+        if(shift) { chord.Add(KeyCode.LeftShift); chord.Add(KeyCode.RightShift); }
+        if(alt) { chord.Add(KeyCode.LeftAlt); chord.Add(KeyCode.RightAlt); }
+        AutoDeafen.MarkInject(chord);
+
         try {
             switch(Application.platform) {
                 case RuntimePlatform.WindowsPlayer:

@@ -43,7 +43,11 @@ public static class ChatterBlocker {
         return MainCore.IsModEnabled && Conf.Enabled;
     }
 
-    private static bool HasAnyFilter() => IsActive() || KeyLimiter.KeyLimiter.IsEnabled();
+    // Also take over counting briefly while the Auto Deafen shortcut chord is
+    // injected, even with chatter + limiter off, so the synthetic keypress can be
+    // dropped from the hit count instead of wrecking judgement.
+    private static bool HasAnyFilter() =>
+        IsActive() || KeyLimiter.KeyLimiter.IsEnabled() || AutoDeafen.AutoDeafen.InjectBypassActive;
 
     private static long ThresholdMs() => Math.Max(0L, (long)Math.Round(Conf?.ThresholdMs ?? 0f));
 
@@ -117,7 +121,13 @@ public static class ChatterBlocker {
         foreach(AnyKeyCode mainPressKey in RDInput.GetMainPressKeys()) {
             object value = mainPressKey.value;
             if(value is KeyCode key) {
-                reportedKeysThisFrame.Add(KeyLimiter.KeyLimiter.NormalizeKey(key));
+                KeyCode normalized = KeyLimiter.KeyLimiter.NormalizeKey(key);
+                reportedKeysThisFrame.Add(normalized);
+                // Drop the Auto Deafen shortcut chord's own injected keypress so
+                // it never scores a hit mid-run (it still reaches Discord).
+                if(AutoDeafen.AutoDeafen.IsInjectedKey(normalized)) {
+                    continue;
+                }
                 if(KeyLimiter.KeyLimiter.ShouldBlockKey(key)) {
                     continue;
                 }
@@ -127,6 +137,11 @@ public static class ChatterBlocker {
                     count++;
                 }
             } else if(value is AsyncKeyCode asyncKey) {
+                // Same Auto Deafen injected-chord drop on the async path.
+                if(AutoDeafen.AutoDeafen.IsInjectedKey(KeyLimiter.KeyLimiter.NormalizeKey(
+                        KeyLimiter.KeyLimiter.HookKeyToPhysicalUnityKey(asyncKey.key, asyncKey.label)))) {
+                    continue;
+                }
                 // Async keys are normally blocked at the SkyHook hook (it swallows the
                 // event), but that only works where the OS hook can SUPPRESS — on macOS
                 // the tap observes without reliably suppressing, so a disallowed key
@@ -246,6 +261,13 @@ public static class ChatterBlocker {
                 ev.Type == SkyHook.EventType.KeyPressed);
 
             if(ev.Type == SkyHook.EventType.KeyReleased || ev.Key == 27) {
+                return true;
+            }
+
+            // While the Auto Deafen shortcut chord is being injected, never
+            // suppress: the keystroke has to reach Discord's global shortcut
+            // listener even when the Key Limiter would otherwise eat it.
+            if(AutoDeafen.AutoDeafen.InjectBypassActive) {
                 return true;
             }
 

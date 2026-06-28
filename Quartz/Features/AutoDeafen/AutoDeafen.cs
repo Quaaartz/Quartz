@@ -168,6 +168,42 @@ public static class AutoDeafen {
         }
     }
 
+    // ===== shortcut inject guard =====
+    // The shortcut chord is injected system-wide so Discord's global keybind
+    // sees it — but the synthetic presses also reach ADOFAI and would register
+    // as gameplay hits, wrecking judgement mid-run (Shift and the base key are
+    // both real gameplay keys). NativeKeySender marks the whole chord for a
+    // short window; the game's key-count funnel (ChatterBlocker
+    // .CountValidKeysPressed) drops IsInjectedKey presses so they never count as
+    // hits, while the SkyHook hook honours InjectBypassActive to keep the
+    // keystrokes flowing out to Discord. Keys are stored normalized
+    // (NativeKeySender normalizes) so callers compare normalized.
+    //
+    // Touched only on the main thread (the deafen tick injects; the count funnel
+    // reads) so the set needs no lock; the window stamp is volatile because the
+    // SkyHook hook thread reads InjectBypassActive.
+    private const int InjectWindowMs = 150;
+    private static volatile int injectBypassUntil;
+    private static readonly HashSet<KeyCode> injectedKeys = [];
+
+    // True for InjectWindowMs after a chord is injected: the SkyHook hook must
+    // not suppress during this window or the limiter could eat the keystroke
+    // before Discord sees it. Read from the hook thread, so kept lock-free.
+    public static bool InjectBypassActive =>
+        injectBypassUntil != 0 && Environment.TickCount - injectBypassUntil <= 0;
+
+    // Whether key (already normalized) is part of the chord currently injected.
+    public static bool IsInjectedKey(KeyCode key) =>
+        InjectBypassActive && injectedKeys.Contains(key);
+
+    internal static void MarkInject(IEnumerable<KeyCode> normalizedKeys) {
+        injectedKeys.Clear();
+        foreach(KeyCode k in normalizedKeys) {
+            injectedKeys.Add(k);
+        }
+        injectBypassUntil = Environment.TickCount + InjectWindowMs;
+    }
+
     // A run (re)started — allow deafening again and re-measure where it began.
     private static void OnRunReset() {
         suppressUntilRestart = false;
