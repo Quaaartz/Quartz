@@ -1,0 +1,14 @@
+CREDITS.md
+  h_6eeb8441a8a159 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "d230e2ffd52fb32c2663d21141d3a7b59c90b9be",
+  "prompts": {},
+  "humans": {
+    "h_6eeb8441a8a159": {
+      "author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
