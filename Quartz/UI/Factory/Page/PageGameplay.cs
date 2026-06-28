@@ -366,6 +366,81 @@ internal static class PageGameplay {
 
     // ===== Key Limiter =====
 
+    // Profile picker + management row. Switching, adding and removing a
+    // profile restructure the page (the dropdown's option set and the name
+    // input both depend on the profile list), so they rebuild it like the
+    // Auto Deafen mode switch. Renaming saves live without a rebuild.
+    private static void CreateProfileControls(Transform body) {
+        int count = KeyLimiter.Profiles.Count;
+        int active = KeyLimiter.ActiveProfileIndex;
+
+        int[] indices = new int[count];
+        for(int i = 0; i < count; i++) {
+            indices[i] = i;
+        }
+
+        GenerateUI.DropDown(
+            GenerateUI.Row(body),
+            0,
+            active,
+            indices,
+            ProfileName,
+            v => {
+                KeyLimiter.SwitchProfile(v);
+                UICore.Rebuild();
+            },
+            "kl_profile",
+            260f,
+            "Profile"
+        );
+
+        var nameInput = GenerateUI.Input(
+            GenerateUI.Row(body),
+            "",
+            ProfileName(active),
+            v => KeyLimiter.RenameActiveProfile(v),
+            "Profile Name",
+            MainCore.Spr.Get(UISprite.Text128),
+            "kl_profile_name"
+        );
+        nameInput.Rect.AddToolTip(
+            "DESC_KL_PROFILE_NAME",
+            "Rename the current profile, e.g. \"12 Keys\"."
+        );
+
+        GenerateUI.Button(
+            GenerateUI.Row(body),
+            () => {
+                KeyLimiter.AddProfile();
+                UICore.Rebuild();
+            },
+            "Add Profile",
+            "kl_add_profile"
+        ).SetSecondary();
+
+        UIButton removeBtn = GenerateUI.Button(
+            GenerateUI.Row(body),
+            () => {
+                KeyLimiter.RemoveActiveProfile();
+                UICore.Rebuild();
+            },
+            "Remove Profile",
+            "kl_remove_profile"
+        ).SetSecondary();
+        // The last profile can't go — the limiter always needs one set.
+        removeBtn.SetBlocked(count <= 1, true);
+    }
+
+    private static string ProfileName(int index) {
+        var profiles = KeyLimiter.Profiles;
+        if(index < 0 || index >= profiles.Count) {
+            return "Profile " + (index + 1);
+        }
+
+        string name = profiles[index].Name;
+        return string.IsNullOrEmpty(name) ? "Profile " + (index + 1) : name;
+    }
+
     private static void CreateKeyLimiter(Transform content) {
         KeyLimiter.EnsureConf();
         KeyLimiterSettings conf = KeyLimiter.Conf;
@@ -379,6 +454,8 @@ internal static class PageGameplay {
             },
             conf.Enabled
         );
+
+        CreateProfileControls(sec.Body);
 
         UIButton captureBtn = null;
         captureBtn = GenerateUI.Button(

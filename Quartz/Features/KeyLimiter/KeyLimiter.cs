@@ -148,6 +148,70 @@ public static class KeyLimiter {
         Changed?.Invoke();
     }
 
+    // ===== profiles =====
+    //
+    // The limiter enforces exactly one profile at a time (the active one),
+    // each its own named allowed set — e.g. a 12-key and a 16-key layout you
+    // switch between. All the allowed-key helpers above operate on the active
+    // profile via Conf.AllowedKeys, so switching just repoints them.
+
+    public static IReadOnlyList<KeyLimiterProfile> Profiles {
+        get { EnsureConf(); return Conf.Profiles; }
+    }
+
+    public static int ActiveProfileIndex {
+        get { EnsureConf(); return Conf.ActiveProfile; }
+    }
+
+    public static void SwitchProfile(int index) {
+        EnsureConf();
+        if(index < 0 || index >= Conf.Profiles.Count || index == Conf.ActiveProfile) {
+            return;
+        }
+
+        // A pending key capture targets the old profile's list — drop it.
+        CancelCapture();
+        Conf.ActiveProfile = index;
+        Save();
+        Changed?.Invoke();
+    }
+
+    // Adds an empty profile and makes it active so it can be configured.
+    public static void AddProfile() {
+        EnsureConf();
+        Conf.Profiles.Add(new KeyLimiterProfile {
+            Name = "Profile " + (Conf.Profiles.Count + 1),
+            Keys = [],
+        });
+        Conf.ActiveProfile = Conf.Profiles.Count - 1;
+        Save();
+        Changed?.Invoke();
+    }
+
+    // Removes the active profile. The last profile can't be removed — the
+    // limiter always needs one set to enforce.
+    public static void RemoveActiveProfile() {
+        EnsureConf();
+        if(Conf.Profiles.Count <= 1) {
+            return;
+        }
+
+        CancelCapture();
+        Conf.Profiles.RemoveAt(Conf.ActiveProfile);
+        if(Conf.ActiveProfile >= Conf.Profiles.Count) {
+            Conf.ActiveProfile = Conf.Profiles.Count - 1;
+        }
+        Save();
+        Changed?.Invoke();
+    }
+
+    public static void RenameActiveProfile(string name) {
+        EnsureConf();
+        Conf.ActiveProfileOrDefault().Name = name ?? "";
+        Save();
+        Changed?.Invoke();
+    }
+
     // ===== key normalization (ported from v1's KeyCodeCompat) =====
 
     // v1 stored async keys as 0x1000 + Windows virtual-key in old configs.
@@ -359,7 +423,26 @@ public static class KeyLimiter {
         return platform == RuntimePlatform.WindowsPlayer || platform == RuntimePlatform.WindowsEditor;
     }
 
+    // KeyLabel -> KeyCode is a pure mapping but the resolver below does a
+    // label.ToString() (Mono Enum.ToString allocates) plus string parsing on every
+    // key edge. This runs on the SkyHook hook thread for every press/release, so on
+    // macOS/Linux (where the Windows VK fast path in HookKeyToPhysicalUnityKey is
+    // skipped) it churned a short string per edge. Memoize: KeyLabel has a small,
+    // fixed member set, so the cache saturates almost immediately. Accessed only
+    // from the single SkyHook hook thread (both callers run there, serialized), so
+    // a plain Dictionary needs no synchronization.
+    private static readonly Dictionary<KeyLabel, KeyCode> asyncLabelCache = new();
+
     private static KeyCode AsyncLabelToPhysicalUnityKey(KeyLabel label) {
+        if(asyncLabelCache.TryGetValue(label, out KeyCode cached)) {
+            return cached;
+        }
+        KeyCode resolved = ResolveAsyncLabelToPhysicalUnityKey(label);
+        asyncLabelCache[label] = resolved;
+        return resolved;
+    }
+
+    private static KeyCode ResolveAsyncLabelToPhysicalUnityKey(KeyLabel label) {
         string name = label.ToString();
 
         if(name.Length == 1 && name[0] >= 'A' && name[0] <= 'Z') {
