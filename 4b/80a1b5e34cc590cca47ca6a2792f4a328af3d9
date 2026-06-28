@@ -1,0 +1,51 @@
+Quartz/Core/Service/LocalizationService.cs
+  s_55e8797a70c9f2::t_3abdb2d0c649cb 19-24
+  s_55e8797a70c9f2::t_ba7142ca8f4958 1
+  s_95636bcdf236dd::t_4142915587996b 17
+  s_95636bcdf236dd::t_b2d7604011ef4a 25
+Quartz/Localization/Translator.cs
+  s_55e8797a70c9f2::t_ebb8f95ad8a3cd 76-88
+  s_95636bcdf236dd::t_4aad654d310534 339,341
+  s_95636bcdf236dd::t_dd1a6a6575657d 59
+  s_95636bcdf236dd::t_ab6ab85ae98564 297
+  s_95636bcdf236dd::t_981c848d5065af 386-389
+  s_95636bcdf236dd::t_271c36e2d6ede1 89-90
+  s_95636bcdf236dd::t_a877e332890a6b 313-314
+  s_95636bcdf236dd::t_3dc1fa32dfecde 384
+  s_95636bcdf236dd::t_62caa2a4fdc37f 93
+  s_95636bcdf236dd::t_27c73b8dbc566c 163
+  s_95636bcdf236dd::t_ffb695700bab9f 324,326
+  s_95636bcdf236dd::t_1474a67e8ca21f 311
+  s_95636bcdf236dd::t_eee52abba033e4 299-300
+  s_95636bcdf236dd::t_4286fd2c43c5c7 353
+  s_55e8797a70c9f2::t_89e015f3ca34d4 276-286
+  s_95636bcdf236dd::t_d7af9d65bae16c 400,402
+  s_55e8797a70c9f2::t_fa546c6ca34d25 62-63
+  s_95636bcdf236dd::t_eed6b064b0636c 367
+  s_95636bcdf236dd::t_a92f37994d650c 371
+  s_95636bcdf236dd::t_388352f7871ca4 94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4b80a1b5e34cc590cca47ca6a2792f4a328af3d9",
+  "prompts": {},
+  "sessions": {
+    "s_55e8797a70c9f2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "38c21206-2a13-4447-a5f0-aac3f5a80137",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    },
+    "s_95636bcdf236dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b86e35d-232a-4f5e-a8bf-67b61afccd4c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
