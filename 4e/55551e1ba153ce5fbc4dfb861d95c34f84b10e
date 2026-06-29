@@ -1,0 +1,19 @@
+build.json
+  s_eca0e356bb5a7c::t_6b3e269ce603b8 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "4e55551e1ba153ce5fbc4dfb861d95c34f84b10e",
+  "prompts": {},
+  "sessions": {
+    "s_eca0e356bb5a7c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f1556-913a-7182-9c9a-86a719f6a136",
+        "model": "gpt-5.5"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
