@@ -56,9 +56,7 @@ public static class KeyLimiter {
 
     public static bool InPlayerControl() {
         int frame = Time.frameCount;
-        if(cachedPlayerControlFrame == frame) {
-            return cachedPlayerControl;
-        }
+        if(cachedPlayerControlFrame == frame) return cachedPlayerControl;
 
         cachedPlayerControlFrame = frame;
         SetCachedPlayerControl(false);
@@ -117,9 +115,7 @@ public static class KeyLimiter {
         if(key == KeyCode.None || IsMouseKey(key)) return;
 
         List<int> keys = [.. Conf.AllowedKeys];
-        if(!keys.Remove((int)key)) {
-            keys.Add((int)key);
-        }
+        if(!keys.Remove((int)key)) keys.Add((int)key);
 
         Conf.AllowedKeys = [.. keys];
         PersistChange();
@@ -383,22 +379,18 @@ public static class KeyLimiter {
     private static KeyCode ResolveAsyncLabelToPhysicalUnityKey(KeyLabel label) {
         string name = label.ToString();
 
-        if(name.Length == 1 && name[0] >= 'A' && name[0] <= 'Z') {
+        if(name.Length == 1 && name[0] >= 'A' && name[0] <= 'Z')
             return (KeyCode)((int)KeyCode.A + (name[0] - 'A'));
-        }
 
-        if(name.Length == 6 && name.StartsWith("Alpha") && name[5] >= '0' && name[5] <= '9') {
+        if(name.Length == 6 && name.StartsWith("Alpha") && name[5] >= '0' && name[5] <= '9')
             return (KeyCode)((int)KeyCode.Alpha0 + (name[5] - '0'));
-        }
 
         if(name.Length >= 2 && name[0] == 'F'
-            && int.TryParse(name[1..], out int functionKey) && functionKey >= 1 && functionKey <= 15) {
+            && int.TryParse(name[1..], out int functionKey) && functionKey >= 1 && functionKey <= 15)
             return (KeyCode)((int)KeyCode.F1 + (functionKey - 1));
-        }
 
-        if(name.Length == 7 && name.StartsWith("Keypad") && name[6] >= '0' && name[6] <= '9') {
+        if(name.Length == 7 && name.StartsWith("Keypad") && name[6] >= '0' && name[6] <= '9')
             return (KeyCode)((int)KeyCode.Keypad0 + (name[6] - '0'));
-        }
 
         return name switch {
             "Escape" => KeyCode.Escape,
@@ -667,11 +659,8 @@ public static class KeyLimiter {
                     return;
                 }
 
-                if(held) {
-                    prevHeld.Add(key);
-                } else {
-                    prevHeld.Remove(key);
-                }
+                if(held) prevHeld.Add(key);
+                else prevHeld.Remove(key);
             }
         }
     }

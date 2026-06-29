@@ -164,12 +164,10 @@ public static class UpdateService {
 
         string json;
         using(HttpResponseMessage resp = await Http.GetAsync(url)) {
-            if(resp.StatusCode == HttpStatusCode.NotFound) {
+            if(resp.StatusCode == HttpStatusCode.NotFound)
                 throw new CheckException(UpdateFailure.NotFound, "releases feed returned 404");
-            }
-            if((int)resp.StatusCode is 403 or 429) {
+            if((int)resp.StatusCode is 403 or 429)
                 throw new CheckException(UpdateFailure.RateLimited, $"GitHub returned {(int)resp.StatusCode}");
-            }
             resp.EnsureSuccessStatusCode();
             json = await resp.Content.ReadAsStringAsync();
         }
@@ -204,11 +202,10 @@ public static class UpdateService {
             if(rel["assets"] is JArray assets) {
                 foreach(JToken a in assets) {
                     string name = (string)a["name"];
-                    if(name == zipName) {
+                    if(name == zipName)
                         zipUrl = (string)a["browser_download_url"];
-                    } else if(allowDllFallback && name == "Quartz.dll") {
+                    else if(allowDllFallback && name == "Quartz.dll")
                         dllUrl = (string)a["browser_download_url"];
-                    }
                 }
             }
             string assetUrl = zipUrl ?? dllUrl;

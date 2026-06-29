@@ -357,9 +357,7 @@ public sealed class KeyViewerSettings : ISettingsFile {
 
     public JToken Serialize() {
         JObject counts = [];
-        foreach((string key, int value) in Counts) {
-            counts[key] = value;
-        }
+        foreach((string key, int value) in Counts) counts[key] = value;
 
         return new JObject {
             [nameof(Enabled)] = Enabled,
@@ -619,9 +617,7 @@ public sealed class KeyViewerSettings : ISettingsFile {
     }
 
     private static Color[] ReadColors(JToken token, string name, Color[] fallback) {
-        if(token[name] is not JArray arr || arr.Count != fallback.Length * 4) {
-            return fallback;
-        }
+        if(token[name] is not JArray arr || arr.Count != fallback.Length * 4) return fallback;
 
         try {
             Color[] result = new Color[fallback.Length];
@@ -646,9 +642,7 @@ public sealed class KeyViewerSettings : ISettingsFile {
     }
 
     private static string[] ReadLabels(JToken token, string name, string[] fallback) {
-        if(token[name] is not JArray arr || arr.Count != fallback.Length) {
-            return fallback;
-        }
+        if(token[name] is not JArray arr || arr.Count != fallback.Length) return fallback;
 
         string[] result = new string[arr.Count];
         for(int i = 0; i < arr.Count; i++) result[i] = arr[i].Type == JTokenType.String ? arr[i].ToString() : "";
@@ -660,9 +654,7 @@ public sealed class KeyViewerSettings : ISettingsFile {
     }
 
     private static T[] ReadArray<T>(JToken token, string name, T[] fallback, Func<JToken, T> read) {
-        if(token[name] is not JArray arr || arr.Count != fallback.Length) {
-            return fallback;
-        }
+        if(token[name] is not JArray arr || arr.Count != fallback.Length) return fallback;
 
         try {
             T[] result = new T[arr.Count];

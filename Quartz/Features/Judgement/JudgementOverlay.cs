@@ -104,11 +104,8 @@ public static class JudgementOverlay {
         root.anchorMax = new Vector2(0.5f, 0f);
         root.pivot = new Vector2(0.5f, 0f);
 
-        if(compact) {
-            BuildCompactRow(rowObj);
-        } else {
-            BuildMultiLabelRow(rowObj);
-        }
+        if(compact) BuildCompactRow(rowObj);
+        else BuildMultiLabelRow(rowObj);
 
         GameObject drag = new("Drag");
         dragObj = drag;
@@ -218,9 +215,7 @@ public static class JudgementOverlay {
         }
 
         rowLayout.spacing = RowSpacing();
-        foreach(TextMeshProUGUI label in labels) {
-            ApplyTextStyle(label, fontSize);
-        }
+        foreach(TextMeshProUGUI label in labels) ApplyTextStyle(label, fontSize);
         ApplyTextStyle(xPlusLabel, fontSize);
         ApplyTextStyle(xMinusLabel, fontSize);
     }
@@ -326,11 +321,8 @@ public static class JudgementOverlay {
             TMP_FontAsset font = FontManager.Current;
             float fontSize = FontSize();
 
-            if(compact) {
-                UpdateCompact(font, fontSize);
-            } else {
-                UpdateMultiLabel(font, fontSize);
-            }
+            if(compact) UpdateCompact(font, fontSize);
+            else UpdateMultiLabel(font, fontSize);
         }
 
         private void UpdateMultiLabel(TMP_FontAsset font, float fontSize) {
@@ -385,9 +377,7 @@ public static class JudgementOverlay {
                 LayoutRebuilder.ForceRebuildLayoutImmediate(root);
 
                 // Second pass: sync the shadow against the now-final geometry.
-                for(int i = 0; i < labels.Length; i++) {
-                    ApplyTextStyle(labels[i], fontSize);
-                }
+                for(int i = 0; i < labels.Length; i++) ApplyTextStyle(labels[i], fontSize);
                 if(xpMode) {
                     ApplyTextStyle(xPlusLabel, fontSize);
                     ApplyTextStyle(xMinusLabel, fontSize);

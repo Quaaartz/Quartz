@@ -79,9 +79,8 @@ public readonly struct SemVer : IComparable<SemVer> {
         if(core.Length < 3
             || !int.TryParse(core[0], out int major)
             || !int.TryParse(core[1], out int minor)
-            || !int.TryParse(core[2], out int patch)) {
+            || !int.TryParse(core[2], out int patch))
             return false;
-        }
 
         version = new SemVer(major, minor, patch, channel, build);
         return true;

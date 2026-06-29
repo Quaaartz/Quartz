@@ -12,8 +12,6 @@ internal static class Hold {
                 HoldBehavior.NoHoldNeeded => "No Holding Required",
                 _ => behavior.ToString(),
             };
-        } catch {
-            return null;
-        }
+        } catch { return null; }
     }
 }

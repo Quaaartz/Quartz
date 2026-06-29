@@ -5,7 +5,6 @@ using Quartz.UI.Objects.Impl;
 using Quartz.UI.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 using TMPro;
 

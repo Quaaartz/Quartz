@@ -33,21 +33,17 @@ public sealed class SystemColorInterpolator : IInterpolator<Color> {
         return v < 0 ? 0 : v > 255 ? 255 : v;
     }
 
-    public Color Subtract(Color initialValue, Color finalValue) {
-        return Color.FromArgb(
-            finalValue.A - initialValue.A,
-            finalValue.R - initialValue.R,
-            finalValue.G - initialValue.G,
-            finalValue.B - initialValue.B
-        );
-    }
+    public Color Subtract(Color initialValue, Color finalValue) => Color.FromArgb(
+        finalValue.A - initialValue.A,
+        finalValue.R - initialValue.R,
+        finalValue.G - initialValue.G,
+        finalValue.B - initialValue.B
+    );
 
-    public Color Add(Color initialValue, Color finalValue) {
-        return Color.FromArgb(
-            finalValue.A + initialValue.A,
-            finalValue.R + initialValue.R,
-            finalValue.G + initialValue.G,
-            finalValue.B + initialValue.B
-        );
-    }
+    public Color Add(Color initialValue, Color finalValue) => Color.FromArgb(
+        finalValue.A + initialValue.A,
+        finalValue.R + initialValue.R,
+        finalValue.G + initialValue.G,
+        finalValue.B + initialValue.B
+    );
 }

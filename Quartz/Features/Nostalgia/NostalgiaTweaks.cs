@@ -51,9 +51,8 @@ public static partial class Nostalgia {
 
             if(show) {
                 if(editor != null) SetGoActive(editor.editorDifficultySelector, true);
-                if(ui != null) {
+                if(ui != null)
                     foreach(string f in DifficultyFields) SetUiActive(ui, f, true);
-                }
                 return;
             }
 
@@ -139,9 +138,8 @@ public static partial class Nostalgia {
             newsSign.button.transform.parent.gameObject.SetActive(show);
             SpriteRenderer[] renderers =
                 Traverse.Create(newsSign).Field("spriteRenderers").GetValue<SpriteRenderer[]>();
-            if(renderers != null) {
+            if(renderers != null)
                 foreach(SpriteRenderer renderer in renderers) renderer.enabled = show;
-            }
         }
     }
 

@@ -269,16 +269,10 @@ public static class SongTitleOverlay {
 
             bool isReorganizing = UICore.IsReorganizing;
             bool show = (PanelsOverlay.IsEnabled && Conf.Enabled && GameStats.InGame) || isReorganizing;
-            if(raycaster != null && raycaster.enabled != isReorganizing) {
-                raycaster.enabled = isReorganizing;
-            }
-            if(root.gameObject.activeSelf != show) {
-                root.gameObject.SetActive(show);
-            }
+            if(raycaster != null && raycaster.enabled != isReorganizing) raycaster.enabled = isReorganizing;
+            if(root.gameObject.activeSelf != show) root.gameObject.SetActive(show);
 
-            if(dragObj != null && dragObj.activeSelf != isReorganizing) {
-                dragObj.SetActive(isReorganizing);
-            }
+            if(dragObj != null && dragObj.activeSelf != isReorganizing) dragObj.SetActive(isReorganizing);
 
             if(!show) return;
 

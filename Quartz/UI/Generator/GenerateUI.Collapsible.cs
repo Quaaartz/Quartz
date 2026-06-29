@@ -46,11 +46,8 @@ public static partial class GenerateUI {
                 MainCore.Conf.SetCollapsibleExpanded(stateKey, v);
                 MainCore.ConfMgr.RequestSave();
             }
-            if(animate) {
-                applyState?.Invoke();
-            } else {
-                applyInstant?.Invoke();
-            }
+            if(animate) applyState?.Invoke();
+            else applyInstant?.Invoke();
         }
     }
 

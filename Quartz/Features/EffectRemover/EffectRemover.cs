@@ -231,7 +231,6 @@ public static partial class EffectRemover {
         foreach(string eventTag in GetTags(eventData, "eventTag")) {
             if(tags.Contains(eventTag)) return true;
         }
-
         return false;
     }
 
@@ -239,7 +238,6 @@ public static partial class EffectRemover {
         foreach(string tag in GetTags(eventData, "tag")) {
             if(tags.Contains(tag)) return true;
         }
-
         return false;
     }
 

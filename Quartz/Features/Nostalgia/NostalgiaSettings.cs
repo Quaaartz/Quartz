@@ -52,8 +52,8 @@ public sealed class NostalgiaSettings : ISettingsFile {
     public bool OldBackground = false;
     public int OldBackgroundIndex = 0; // 0 = A, 1 = B
 
-    public JToken Serialize() {
-        return new JObject {
+    public JToken Serialize() =>
+        new JObject {
             [nameof(LegacyResult)] = LegacyResult,
             [nameof(NoResult)] = NoResult,
             [nameof(HideDifficulty)] = HideDifficulty,
@@ -87,7 +87,6 @@ public sealed class NostalgiaSettings : ISettingsFile {
             [nameof(OldBackground)] = OldBackground,
             [nameof(OldBackgroundIndex)] = OldBackgroundIndex,
         };
-    }
 
     public void Deserialize(JToken token) {
         LegacyResult = IOUtils.Read(token, nameof(LegacyResult), LegacyResult);

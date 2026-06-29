@@ -5,7 +5,6 @@ using Quartz.UI.Generator;
 using Quartz.UI.Objects.Impl;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 using static UnityEngine.EventSystems.PointerEventData;
 
 using TMPro;
@@ -848,11 +847,9 @@ internal static class PageKeyViewer {
         GenerateUI.Localize(GenerateUI.AddTextH1(GenerateUI.Row(dmNoteBody)), "HEADING_DM_NOTE", "DM Note");
 
         var presetStatus = GenerateUI.AddMutedText(GenerateUI.Row(dmNoteBody, 30f), 17f, 0.45f);
-        void RefreshPresetStatus() {
-            presetStatus.text = string.IsNullOrWhiteSpace(conf.DmPresetJson)
-                ? MainCore.Tr.Get("KEYVIEWER_DM_NO_PRESET", "No preset loaded")
-                : string.Format(MainCore.Tr.Get("KEYVIEWER_DM_PRESET_LOADED", "Preset loaded: {0} chars"), conf.DmPresetJson.Length);
-        }
+        void RefreshPresetStatus() => presetStatus.text = string.IsNullOrWhiteSpace(conf.DmPresetJson)
+            ? MainCore.Tr.Get("KEYVIEWER_DM_NO_PRESET", "No preset loaded")
+            : string.Format(MainCore.Tr.Get("KEYVIEWER_DM_PRESET_LOADED", "Preset loaded: {0} chars"), conf.DmPresetJson.Length);
 
         GenerateUI.Button(
             GenerateUI.Row(dmNoteBody),
@@ -885,11 +882,9 @@ internal static class PageKeyViewer {
         // --- Custom CSS: an optional stylesheet layered over the preset's
         // per-key styling (colors, border, radius, font, glow, gradients). ---
         var cssStatus = GenerateUI.AddMutedText(GenerateUI.Row(dmNoteBody, 30f), 17f, 0.45f);
-        void RefreshCssStatus() {
-            cssStatus.text = string.IsNullOrWhiteSpace(conf.DmCssText)
-                ? MainCore.Tr.Get("KEYVIEWER_DM_CSS_NONE", "No custom CSS")
-                : string.Format(MainCore.Tr.Get("KEYVIEWER_DM_CSS_LOADED", "Custom CSS: {0} chars"), conf.DmCssText.Length);
-        }
+        void RefreshCssStatus() => cssStatus.text = string.IsNullOrWhiteSpace(conf.DmCssText)
+            ? MainCore.Tr.Get("KEYVIEWER_DM_CSS_NONE", "No custom CSS")
+            : string.Format(MainCore.Tr.Get("KEYVIEWER_DM_CSS_LOADED", "Custom CSS: {0} chars"), conf.DmCssText.Length);
 
         GenerateUI.Toggle(
             GenerateUI.Row(dmNoteBody),
@@ -1061,10 +1056,7 @@ internal static class PageKeyViewer {
         string format, float step,
         Action<float> setter, Action save
     ) {
-        float Snap(float v) {
-            float snapped = Mathf.Round(v / step) * step;
-            return Mathf.Clamp(snapped, min, max);
-        }
+        float Snap(float v) => Mathf.Clamp(Mathf.Round(v / step) * step, min, max);
 
         UISlider s = GenerateUI.Slider(
             GenerateUI.Row(body),

@@ -1,9 +1,7 @@
 using Quartz.Core;
 using Quartz.UI.Generator;
-using Quartz.UI.Utility;
 using Quartz.Update;
 using UnityEngine;
-using UnityEngine.UI;
 
 using TMPro;
 

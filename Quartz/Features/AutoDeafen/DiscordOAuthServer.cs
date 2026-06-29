@@ -119,9 +119,8 @@ internal static class DiscordOAuthServer {
 
     private static void StopLocked() {
         running = false;
-        for(int i = 0; i < listeners.Count; i++) {
+        for(int i = 0; i < listeners.Count; i++)
             try { listeners[i].Stop(); } catch { }
-        }
         listeners.Clear();
         thread = null;
     }

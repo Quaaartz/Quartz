@@ -12,8 +12,7 @@ public sealed class CallbackTweenBehaviour : TweenBehaviour {
     }
 
     public override void Start(bool isCompletingInstantly) {
-        bool canCall = !isCompletingInstantly || _callIfCompletingInstantly;
-        if(canCall) _action?.Invoke();
+        if(!isCompletingInstantly || _callIfCompletingInstantly) _action?.Invoke();
         MarkFinished();
     }
 

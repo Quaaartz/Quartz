@@ -206,9 +206,7 @@ public static class AutoDeafen {
 
     // Run left the screen (scene change) — undeafen without touching the
     // latch or the captured start.
-    private static void OnRunHide() {
-        Undeafen();
-    }
+    private static void OnRunHide() => Undeafen();
 
     private static void Undeafen() {
         if(!desiredDeaf) return;

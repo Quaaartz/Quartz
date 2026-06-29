@@ -64,9 +64,8 @@ public static partial class Tweaks {
             lightUpDepth++;
             try {
                 int id = __instance.GetInstanceID();
-                if(!lightUpDisableGlowStates.ContainsKey(id)) {
+                if(!lightUpDisableGlowStates.ContainsKey(id))
                     lightUpDisableGlowStates[id] = __instance.disableGlow;
-                }
                 __instance.disableGlow = true;
             } catch {
             }

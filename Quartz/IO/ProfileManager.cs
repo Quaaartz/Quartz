@@ -166,9 +166,7 @@ public static class ProfileManager {
         bool switchStarted = false;
 
         try {
-            if(!CaptureActive()) {
-                throw new IOException("could not capture the active profile before switching");
-            }
+            if(!CaptureActive()) throw new IOException("could not capture the active profile before switching");
 
             // Read and validate both sides before changing live files. This catches
             // a corrupt/inaccessible profile without disabling the mod or leaving a
@@ -392,9 +390,7 @@ public static class ProfileManager {
         Directory.CreateDirectory(staging);
 
         try {
-            foreach(KeyValuePair<string, byte[]> file in files) {
-                AtomicFile.WriteAllBytes(Path.Combine(staging, file.Key), file.Value);
-            }
+            foreach(KeyValuePair<string, byte[]> file in files) AtomicFile.WriteAllBytes(Path.Combine(staging, file.Key), file.Value);
 
             bool hadPrevious = Directory.Exists(directory);
             if(hadPrevious) Directory.Move(directory, backup);
@@ -494,9 +490,7 @@ public static class ProfileManager {
             if(!excluded.Contains(fileName) && !files.ContainsKey(fileName)) File.Delete(live);
         }
 
-        foreach(KeyValuePair<string, string> file in files) {
-            AtomicFile.WriteAllText(Path.Combine(MainCore.Paths.RootPath, file.Key), file.Value);
-        }
+        foreach(KeyValuePair<string, string> file in files) AtomicFile.WriteAllText(Path.Combine(MainCore.Paths.RootPath, file.Key), file.Value);
     }
 
     private static void ApplyRuntimeSettings() {

@@ -122,9 +122,7 @@ public static class TMPTextShadow {
     // static-dictionary leak across UI rebuilds).
     private static ShadowRoot GetOrCreateRoot(TextMeshProUGUI text) {
         ShadowLink link = text.GetComponent<ShadowLink>();
-        if(link != null && link.Root != null && link.Root.Rect != null) {
-            return link.Root;
-        }
+        if(link != null && link.Root != null && link.Root.Rect != null) return link.Root;
 
         Transform parent = text.transform.parent;
         if(parent == null) return null;
@@ -158,9 +156,7 @@ public static class TMPTextShadow {
             KeepRootBehindTarget(text, rect);
         }
 
-        if(link == null) {
-            link = text.gameObject.AddComponent<ShadowLink>();
-        }
+        if(link == null) link = text.gameObject.AddComponent<ShadowLink>();
         link.Root = root;
         return root;
     }
@@ -293,9 +289,7 @@ public static class TMPTextShadow {
     }
 
     private static Vector2 SoftnessOffset(int index, float spread) {
-        if(spread <= 0.001f) {
-            return Vector2.zero;
-        }
+        if(spread <= 0.001f) return Vector2.zero;
 
         return index switch {
             0 => new Vector2(spread, 0f),

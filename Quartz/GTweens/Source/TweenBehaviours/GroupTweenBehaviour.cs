@@ -63,9 +63,7 @@ public sealed class GroupTweenBehaviour : TweenBehaviour {
         _durationCalculated = true;
         _cachedCalculatedDuration = 0.0f;
 
-        foreach(GTween tween in _tweens) {
-            _cachedCalculatedDuration += tween.GetDuration();
-        }
+        foreach(GTween tween in _tweens) _cachedCalculatedDuration += tween.GetDuration();
 
         return _cachedCalculatedDuration;
     }
@@ -73,9 +71,7 @@ public sealed class GroupTweenBehaviour : TweenBehaviour {
     public override float GetElapsed() {
         float totalDuration = 0.0f;
 
-        foreach(GTween tween in _tweens) {
-            totalDuration += tween.GetElapsed();
-        }
+        foreach(GTween tween in _tweens) totalDuration += tween.GetElapsed();
 
         return totalDuration;
     }

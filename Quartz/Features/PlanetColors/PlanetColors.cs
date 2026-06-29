@@ -92,9 +92,8 @@ public static partial class PlanetColors {
         if(system == null) return EmptyPlanets;
 
         int count = system.allPlanets != null ? system.allPlanets.Count : 0;
-        if(cachedSystemPlanets != null && cachedSystem == system && cachedSystemCount == count) {
+        if(cachedSystemPlanets != null && cachedSystem == system && cachedSystemCount == count)
             return cachedSystemPlanets;
-        }
 
         cachedSystem = system;
         cachedSystemCount = count;
@@ -156,9 +155,8 @@ public static partial class PlanetColors {
         if(renderer == null) return 0;
 
         int rendererId = renderer.GetInstanceID();
-        if(rendererSlots.TryGetValue(rendererId, out int slot)) {
+        if(rendererSlots.TryGetValue(rendererId, out int slot))
             return Mathf.Clamp(slot, 0, PlanetColorsSettings.Slots - 1);
-        }
 
         scrPlanet planet = FindPlanetForRenderer(renderer);
         if(planet == null) return 0;
@@ -187,9 +185,8 @@ public static partial class PlanetColors {
     private static void RememberRendererSlot(scrPlanet planet) {
         if(planet == null) return;
         try {
-            if(planet.planetRenderer != null) {
+            if(planet.planetRenderer != null)
                 rendererSlots[planet.planetRenderer.GetInstanceID()] = GetPlanetSlot(planet);
-            }
         } catch {
         }
     }
@@ -203,9 +200,8 @@ public static partial class PlanetColors {
         if(!ShouldChange) return;
 
         scrPlanet[] planets = GetPlanets();
-        for(int i = 0; i < planets.Length; i++) {
+        for(int i = 0; i < planets.Length; i++)
             ApplyPlanetColor(planets[i]);
-        }
 
         try { ApplyLogoColor(scrLogoText.instance); } catch { }
     }
@@ -313,9 +309,8 @@ public static partial class PlanetColors {
 
             try { renderer.DisableAllSpecialPlanets(); } catch { }
             try {
-                if(renderer.sprite != null && ADOBase.gc != null && ADOBase.gc.tex_planetWhite != null) {
+                if(renderer.sprite != null && ADOBase.gc != null && ADOBase.gc.tex_planetWhite != null)
                     renderer.sprite.sprite = ADOBase.gc.tex_planetWhite;
-                }
             } catch {
             }
 

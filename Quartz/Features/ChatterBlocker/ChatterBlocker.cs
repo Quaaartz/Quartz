@@ -178,11 +178,8 @@ public static class ChatterBlocker {
                 if(AcceptNormalKey(key, now, threshold, chatterActive)) injected++;
             }
 
-            if(held) {
-                injectedKeyHeldPrev.Add(key);
-            } else {
-                injectedKeyHeldPrev.Remove(key);
-            }
+            if(held) injectedKeyHeldPrev.Add(key);
+            else injectedKeyHeldPrev.Remove(key);
         }
 
         return injected;

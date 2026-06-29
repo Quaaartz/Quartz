@@ -240,12 +240,8 @@ public static partial class KeyViewerOverlay {
         if(spec.CounterBold && box.Value != null) box.Value.fontStyle |= FontStyles.Bold;
 
         // A gradient owns its text's colour, so neutralise the base tint.
-        if((spec.LabelGradient != null || spec.ActiveLabelGradient != null) && box.Label != null) {
-            box.Label.color = Color.white;
-        }
-        if((spec.CounterGradient != null || spec.ActiveCounterGradient != null) && box.Value != null) {
-            box.Value.color = Color.white;
-        }
+        if((spec.LabelGradient != null || spec.ActiveLabelGradient != null) && box.Label != null) box.Label.color = Color.white;
+        if((spec.CounterGradient != null || spec.ActiveCounterGradient != null) && box.Value != null) box.Value.color = Color.white;
 
         BuildKeyImage(box, spec);
         BuildBoxGlow(box, spec);

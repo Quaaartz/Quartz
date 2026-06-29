@@ -100,9 +100,8 @@ public static partial class GenerateUI {
                     break;
 
                 case InputButton.Middle:
-                    if(MainCore.Conf.MiddleClickToDefault && toggle.Value != toggle.DefaultValue) {
+                    if(MainCore.Conf.MiddleClickToDefault && toggle.Value != toggle.DefaultValue)
                         toggle.Reset();
-                    }
 
                     break;
             }
@@ -768,9 +767,8 @@ public static partial class GenerateUI {
         AddButton(rect.gameObject, btn => {
             switch(btn) {
                 case InputButton.Middle:
-                    if(MainCore.Conf.MiddleClickToDefault && input.Value != input.DefaultValue) {
+                    if(MainCore.Conf.MiddleClickToDefault && input.Value != input.DefaultValue)
                         input.Reset();
-                    }
 
                     break;
             }
@@ -921,9 +919,8 @@ public static partial class GenerateUI {
             int i = "PANEL".Length;
             while(i < key.Length && char.IsDigit(key[i])) i++;
 
-            if(i > "PANEL".Length && i < key.Length && key[i] == '_') {
+            if(i > "PANEL".Length && i < key.Length && key[i] == '_')
                 key = "PANEL" + key[i..];
-            }
         }
 
         if(key.StartsWith("PANEL_PICK_")) {

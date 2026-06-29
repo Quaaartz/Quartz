@@ -103,8 +103,7 @@ public sealed class ComboSettings : ISettingsFile {
     public Color GetComboColor(int combo) {
         if(PerfectColorEnabled && ColorMax > 0 && combo >= ColorMax) return GetPerfectColor();
         if(SolidColor) return GetColorLow();
-        float t = ColorMax <= 0 ? 0f : Mathf.Clamp01((float)combo / ColorMax);
-        return Color.Lerp(GetColorLow(), GetColorHigh(), t);
+        return Color.Lerp(GetColorLow(), GetColorHigh(), ColorMax <= 0 ? 0f : Mathf.Clamp01((float)combo / ColorMax));
     }
 
     public JToken Serialize() {

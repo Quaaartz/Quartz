@@ -11,7 +11,6 @@ using Quartz.UI.Objects.Impl;
 using Quartz.UI.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 using static UnityEngine.EventSystems.PointerEventData;
 
 using TMPro;
@@ -227,9 +226,7 @@ internal static class PageGameplay {
         capture.Conf = conf;
 
         GenerateUI.AddButton(rect.gameObject, btn => {
-            if(btn == InputButton.Left) {
-                capture.Begin();
-            }
+            if(btn == InputButton.Left) capture.Begin();
         });
     }
 
@@ -368,9 +365,7 @@ internal static class PageGameplay {
 
     private static string ProfileName(int index) {
         var profiles = KeyLimiter.Profiles;
-        if(index < 0 || index >= profiles.Count) {
-            return "Profile " + (index + 1);
-        }
+        if(index < 0 || index >= profiles.Count) return "Profile " + (index + 1);
 
         string name = profiles[index].Name;
         return string.IsNullOrEmpty(name) ? "Profile " + (index + 1) : name;
@@ -543,9 +538,7 @@ internal static class PageGameplay {
         label.alignment = TextAlignmentOptions.Center;
 
         GenerateUI.AddButton(obj, btn => {
-            if(btn == InputButton.Left) {
-                onClick();
-            }
+            if(btn == InputButton.Left) onClick();
         });
     }
 
@@ -619,9 +612,7 @@ internal static class PageGameplay {
         // Mode 2 is "XPure Perfect" (XPerfect mod integration). It only makes
         // sense with XPerfect installed; otherwise fall back to Pure Perfect so
         // the dropdown has a valid selection.
-        if(conf.JRestrictMode == 2 && !XPerfectBridge.Installed) {
-            conf.JRestrictMode = 1;
-        }
+        if(conf.JRestrictMode == 2 && !XPerfectBridge.Installed) conf.JRestrictMode = 1;
 
         var sec = GenerateUI.Collapsible(
             content, "Judgement Restriction", startExpanded: false,

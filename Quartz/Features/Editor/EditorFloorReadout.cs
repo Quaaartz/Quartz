@@ -149,9 +149,7 @@ public static partial class EditorFeature {
         // Resync the shadow only when the silhouette could have changed (fresh
         // label sets text from "" → dirty). Position needs no per-frame sync: the
         // shadow root is a sibling under the same tile and rides its transform.
-        if(dirty) {
-            ApplyReadoutShadow();
-        }
+        if(dirty) ApplyReadoutShadow();
     }
 
     // A crisp drop shadow behind the readout via the mod's shared TMP shadow

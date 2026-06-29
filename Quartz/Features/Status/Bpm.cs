@@ -43,8 +43,7 @@ internal static class Bpm {
                     autoTileTimes.Enqueue(Time.time);
                     autoKpsFrame = -1;
                 }
-            } catch {
-            }
+            } catch { }
         }
     }
 

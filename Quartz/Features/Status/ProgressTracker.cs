@@ -20,21 +20,18 @@ internal static class ProgressTracker {
 
         try {
             if(scnGame.instance != null && scnGame.instance.checkpointsUsed > 0) return false;
-        } catch {
-        }
+        } catch { }
 
         try {
             if(scrController.checkpointsUsed > 0) return false;
-        } catch {
-        }
+        } catch { }
 
         // No checkpoint used but the run begins past the first tile — editor
         // play-from-tile or a seek. The checkpoint count alone misses these.
         try {
             scrController c = scrController.instance;
             if(c != null && c.currentSeqID > 0) return false;
-        } catch {
-        }
+        } catch { }
 
         return true;
     }
@@ -55,8 +52,7 @@ internal static class ProgressTracker {
             scrLevelMaker lm = scrLevelMaker.instance;
             int count = lm != null && lm.listFloors != null ? lm.listFloors.Count : 0;
             if(seqID > 0 && count > 0) return Mathf.Clamp01((seqID + 1f) / count);
-        } catch {
-        }
+        } catch { }
 
         float progress = c != null ? c.percentComplete : 0f;
         if(progress > 0f) return Mathf.Clamp01(progress);

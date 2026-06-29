@@ -180,9 +180,8 @@ public static class OttoIcon {
             originalAutoSprites = (Sprite[])editor.autoSprites.Clone();
         }
 
-        for(int i = 0; i < editor.autoSprites.Length; i++) {
+        for(int i = 0; i < editor.autoSprites.Length; i++)
             if(editor.autoSprites[i] != replacement) editor.autoSprites[i] = replacement;
-        }
     }
 
     private static void OverrideAutoButtonSpriteState(Image autoImage, Sprite replacement) {
@@ -230,9 +229,8 @@ public static class OttoIcon {
                 editor.autoSprites != null &&
                 trackedAutoSprites == editor.autoSprites &&
                 editor.autoSprites.Length == originalAutoSprites.Length) {
-                for(int i = 0; i < editor.autoSprites.Length; i++) {
+                for(int i = 0; i < editor.autoSprites.Length; i++)
                     editor.autoSprites[i] = originalAutoSprites[i];
-                }
             }
 
             Button btn = editor.autoImage.GetComponent<Button>();

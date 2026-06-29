@@ -13,11 +13,7 @@ public sealed class SystemQuaternionInterpolator : IInterpolator<Quaternion> {
         Quaternion finalValue,
         float time,
         EasingDelegate easingDelegate
-        ) {
-        float curveTime = easingDelegate(0f, 1f, time);
-
-        return Quaternion.Slerp(initialValue, finalValue, curveTime);
-    }
+        ) => Quaternion.Slerp(initialValue, finalValue, easingDelegate(0f, 1f, time));
 
     public Quaternion Subtract(Quaternion initialValue, Quaternion finalValue) => Quaternion.Inverse(initialValue) * finalValue;
 

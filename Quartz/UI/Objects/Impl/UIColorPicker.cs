@@ -184,9 +184,7 @@ public sealed class UIColorPicker : UIObject {
                 () => rowLayout.preferredHeight,
                 x => {
                     rowLayout.preferredHeight = Mathf.Max(50f, x);
-                    if(rootRect != null) {
-                        LayoutRebuilder.ForceRebuildLayoutImmediate(rootRect);
-                    }
+                    if(rootRect != null) LayoutRebuilder.ForceRebuildLayoutImmediate(rootRect);
                 },
                 targetHeight,
                 0.16f

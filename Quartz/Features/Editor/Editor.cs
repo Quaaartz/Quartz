@@ -265,9 +265,8 @@ public static partial class EditorFeature {
         bool isLevelEvents
     ) {
         if(panel.panelsList != null) {
-            foreach(PropertiesPanel built in panel.panelsList) {
+            foreach(PropertiesPanel built in panel.panelsList)
                 if(built != null) Object.DestroyImmediate(built.gameObject);
-            }
         }
 
         RectTransform tabs = panel.tabs;

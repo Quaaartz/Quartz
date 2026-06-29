@@ -145,9 +145,7 @@ public static class PanelsOverlay {
             key.Append(c);
         }
 
-        while(key.Length > prefix.Length && key[^1] == '_') {
-            key.Length--;
-        }
+        while(key.Length > prefix.Length && key[^1] == '_') key.Length--;
 
         return key.ToString();
     }
@@ -238,9 +236,8 @@ public static class PanelsOverlay {
 
         SyncPositionsToConfig(skipPositionSync);
 
-        foreach(LivePanel p in panels) {
+        foreach(LivePanel p in panels)
             if(p.Rect != null) Object.Destroy(p.Rect.gameObject);
-        }
         panels.Clear();
 
         BuildPanels();
@@ -263,24 +260,18 @@ public static class PanelsOverlay {
 
     private static void BuildPanels() {
         List<PanelConfig> configs = Conf.Panels;
-        for(int i = 0; i < configs.Count; i++) {
-            panels.Add(CreatePanel(configs[i]));
-        }
+        for(int i = 0; i < configs.Count; i++) panels.Add(CreatePanel(configs[i]));
 
         // Layer order: config index 0 is the front-most panel. Unity UI draws
         // later siblings on top, so push them back-to-front — index 0 ends up
         // last in the hierarchy and renders over the rest where they overlap.
         // Matches the settings list, where the top section is the top layer.
-        for(int i = configs.Count - 1; i >= 0; i--) {
-            panels[i].Rect.SetAsLastSibling();
-        }
+        for(int i = configs.Count - 1; i >= 0; i--) panels[i].Rect.SetAsLastSibling();
     }
 
     // Re-applies appearance settings to the live panels (UI change).
     public static void Apply() {
-        foreach(LivePanel p in panels) {
-            ApplyPanel(p);
-        }
+        foreach(LivePanel p in panels) ApplyPanel(p);
     }
 
     private static void ApplyPanel(LivePanel p) {
@@ -316,9 +307,8 @@ public static class PanelsOverlay {
         config.PosY = def.y;
 
         foreach(LivePanel p in panels) {
-            if(p.Config == config && p.Rect != null) {
+            if(p.Config == config && p.Rect != null)
                 p.Rect.anchoredPosition = OverlayCalibration.Scale(new Vector2(config.PosX, config.PosY));
-            }
         }
 
         Save();
@@ -445,9 +435,7 @@ public static class PanelsOverlay {
         private void UpdatePanel(LivePanel p, bool show, bool isReorganizing, bool refreshText) {
             if(p?.Text == null || p.Rect == null) return;
 
-            if(p.DragObj != null && p.DragObj.activeSelf != isReorganizing) {
-                p.DragObj.SetActive(isReorganizing);
-            }
+            if(p.DragObj != null && p.DragObj.activeSelf != isReorganizing) p.DragObj.SetActive(isReorganizing);
 
             if(!show) {
                 if(p.Rect.gameObject.activeSelf) p.Rect.gameObject.SetActive(false);
@@ -562,9 +550,8 @@ public static class PanelsOverlay {
             if(isReorganizing) SyncPosition(p);
         }
 
-        private static StatDef FindStat(string id) {
-            return id != null && CatalogById.TryGetValue(id, out StatDef stat) ? stat : null;
-        }
+        private static StatDef FindStat(string id) =>
+            id != null && CatalogById.TryGetValue(id, out StatDef stat) ? stat : null;
 
         private static void SyncPosition(LivePanel p) {
             Vector2 stored = OverlayCalibration.Unscale(p.Rect.anchoredPosition);

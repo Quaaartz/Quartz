@@ -11,12 +11,10 @@ public sealed class JudgementPopupHiderSettings : ISettingsFile {
     public bool Enabled = true;
     public int HiddenMask = 1 << JudgementPopupHider.XPerfectPerfectBit;
 
-    public JToken Serialize() {
-        return new JObject {
-            [nameof(Enabled)] = Enabled,
-            [nameof(HiddenMask)] = HiddenMask,
-        };
-    }
+    public JToken Serialize() => new JObject {
+        [nameof(Enabled)] = Enabled,
+        [nameof(HiddenMask)] = HiddenMask,
+    };
 
     public void Deserialize(JToken token) {
         Enabled = IOUtils.Read(token, nameof(Enabled), Enabled);

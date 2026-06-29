@@ -910,11 +910,8 @@ public static class UICore {
     }
 
     public static void Toggle(bool noAnimate = false) {
-        if(isOpen) {
-            Close(noAnimate);
-        } else {
-            Open(noAnimate);
-        }
+        if(isOpen) Close(noAnimate);
+        else Open(noAnimate);
     }
 
     public static void ResetScalePosition(bool noAnimate = false) {
@@ -986,11 +983,8 @@ public static class UICore {
     }
 
     public static void ToggleMenu() {
-        if(isMenuOpen) {
-            CloseMenu();
-        } else {
-            OpenMenu();
-        }
+        if(isMenuOpen) CloseMenu();
+        else OpenMenu();
     }
 
     // Accent theming. Applies a new accent palette and recolors every already-built
@@ -1037,9 +1031,8 @@ public static class UICore {
     }
 
     private static bool IsThemeExempt(Transform t) {
-        for(; t != null; t = t.parent) {
+        for(; t != null; t = t.parent)
             if(t.GetComponent<ThemeExempt>() != null) return true;
-        }
         return false;
     }
 

@@ -68,9 +68,8 @@ public static partial class EditorFeature {
             // Tiles stay hidden once switched off, so only re-sweep when the path
             // was (re)built — a fresh tile reports its renderer enabled again.
             List<scrFloor> floors = ADOBase.lm?.listFloors;
-            if(floors != null && floors.Count > 0 && (!bgaApplied || FloorsLookVisible(floors))) {
+            if(floors != null && floors.Count > 0 && (!bgaApplied || FloorsLookVisible(floors)))
                 SetFloorsVisible(floors, false);
-            }
 
             bgaApplied = true;
         } catch {
@@ -131,18 +130,16 @@ public static partial class EditorFeature {
                     ? player.planetarySystem.planetList
                     : null;
                 if(planets == null) continue;
-                foreach(scrPlanet planet in planets) {
+                foreach(scrPlanet planet in planets)
                     if(planet != null) SetPlanetRendererVisible(planet.planetRenderer, visible);
-                }
             }
         }
 
         // Multi-planet dummies are parented to tiles but are planets too.
         List<PlanetRenderer> dummies = ADOBase.controller != null ? ADOBase.controller.dummyPlanets : null;
         if(dummies != null) {
-            foreach(PlanetRenderer dummy in dummies) {
+            foreach(PlanetRenderer dummy in dummies)
                 SetPlanetRendererVisible(dummy, visible);
-            }
         }
     }
 

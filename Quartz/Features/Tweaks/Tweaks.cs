@@ -385,9 +385,8 @@ public static partial class Tweaks {
         // dictionary key, allocates nothing — unlike the old `type.FullName + "."
         // + name` concat that built a throwaway string on every per-frame call.
         var key = (type, name);
-        if(planetRendererMemberCache.TryGetValue(key, out MemberInfo cached)) {
+        if(planetRendererMemberCache.TryGetValue(key, out MemberInfo cached))
             return cached;
-        }
 
         for(Type t = type; t != null; t = t.BaseType) {
             FieldInfo field = t.GetField(name, PlanetRendererMemberFlags);
@@ -457,13 +456,11 @@ public static partial class Tweaks {
             // not floorRenderer.color, so leave the colour to the game. Only the static
             // types (Single/Stripes) need their hit-brighten reverted here.
             if(floor.specialColorType != TrackColorType.Single
-            && floor.specialColorType != TrackColorType.Stripes) {
+            && floor.specialColorType != TrackColorType.Stripes)
                 return;
-            }
             Color color = floor.floorRenderer.deselectedColor;
-            if(color.a <= 0.001f && floor.floorRenderer.cachedColor.a > 0.001f) {
+            if(color.a <= 0.001f && floor.floorRenderer.cachedColor.a > 0.001f)
                 color = floor.floorRenderer.cachedColor;
-            }
             floor.floorRenderer.color = color;
         } catch {
         }
@@ -621,9 +618,8 @@ public static partial class Tweaks {
                 if(dt == typeof(scnEditor)) {
                     if(name == "SwitchToEditMode" || name == "TogglePause" ||
                         name == "ResetScene" || name == "SwitchToPlayMode" ||
-                        name == "PauseIfUnpaused") {
+                        name == "PauseIfUnpaused")
                         return true;
-                    }
                 }
                 if(dt == typeof(PauseMenu)) return true;
             }

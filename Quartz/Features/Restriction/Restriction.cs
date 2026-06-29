@@ -131,9 +131,7 @@ public static class Restriction {
     private static void AfterAddHit(HitMargin hit) {
         EnsureConf();
 
-        if(!MainCore.IsModEnabled || hit == HitMargin.Auto) {
-            return;
-        }
+        if(!MainCore.IsModEnabled || hit == HitMargin.Auto) return;
 
         bool jrOn = Conf.JRestrictEnabled;
         bool dlOn = Conf.DeathLimitEnabled;

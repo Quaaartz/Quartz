@@ -5,7 +5,6 @@ using Quartz.UI.Generator;
 using Quartz.UI.Objects.Impl;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 namespace Quartz.UI.Factory.Page;
 

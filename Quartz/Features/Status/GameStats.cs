@@ -54,9 +54,7 @@ public static class GameStats {
                 }
 
                 return inGameValue = true;
-            } catch {
-                return inGameValue = false;
-            }
+            } catch { return inGameValue = false; }
         }
     }
 
@@ -69,9 +67,7 @@ public static class GameStats {
                 scrController c = scrController.instance;
                 if (c == null || c.currentSeqID == 0) return progressValue = 0f;
                 return progressValue = c.percentComplete;
-            } catch {
-                return progressValue = 0f;
-            }
+            } catch { return progressValue = 0f; }
         }
     }
 
@@ -82,9 +78,7 @@ public static class GameStats {
             accuracyFrame = frame;
             try {
                 return accuracyValue = MistakesAccess.PercentAcc(MistakesAccess.Get());
-            } catch {
-                return accuracyValue = 1f;
-            }
+            } catch { return accuracyValue = 1f; }
         }
     }
 
@@ -95,9 +89,7 @@ public static class GameStats {
             xAccuracyFrame = frame;
             try {
                 return xAccuracyValue = MistakesAccess.PercentXAcc(MistakesAccess.Get());
-            } catch {
-                return xAccuracyValue = 1f;
-            }
+            } catch { return xAccuracyValue = 1f; }
         }
     }
 
@@ -115,9 +107,7 @@ public static class GameStats {
                 float r = acc * prog + (1f - prog);
                 if(float.IsNaN(r) || float.IsInfinity(r)) return maxAccuracyValue = 1f;
                 return maxAccuracyValue = Mathf.Clamp01(r);
-            } catch {
-                return maxAccuracyValue = 1f;
-            }
+            } catch { return maxAccuracyValue = 1f; }
         }
     }
 
@@ -128,9 +118,7 @@ public static class GameStats {
             maxXAccuracyFrame = frame;
             try {
                 return maxXAccuracyValue = XAccuracyCalc.MaxRatio();
-            } catch {
-                return maxXAccuracyValue = 1f;
-            }
+            } catch { return maxXAccuracyValue = 1f; }
         }
     }
 
@@ -141,9 +129,7 @@ public static class GameStats {
             checkpointFrame = frame;
             try {
                 return checkpointValue = scnGame.instance != null ? scnGame.instance.checkpointsUsed : 0;
-            } catch {
-                return checkpointValue = 0;
-            }
+            } catch { return checkpointValue = 0; }
         }
     }
 
@@ -170,9 +156,7 @@ public static class GameStats {
             try {
                 scrConductor c = scrConductor.instance;
                 return pitchValue = c != null && c.song != null ? c.song.pitch : 1f;
-            } catch {
-                return pitchValue = 1f;
-            }
+            } catch { return pitchValue = 1f; }
         }
     }
 
@@ -197,9 +181,7 @@ public static class GameStats {
             try {
                 var g = scnGame.instance;
                 return songArtistValue = g != null && g.levelData != null ? g.levelData.artist ?? "" : "";
-            } catch {
-                return songArtistValue = "";
-            }
+            } catch { return songArtistValue = ""; }
         }
     }
 
@@ -211,9 +193,7 @@ public static class GameStats {
             try {
                 var g = scnGame.instance;
                 return songTitleValue = g != null && g.levelData != null ? g.levelData.song ?? "" : "";
-            } catch {
-                return songTitleValue = "";
-            }
+            } catch { return songTitleValue = ""; }
         }
     }
 
@@ -227,9 +207,7 @@ public static class GameStats {
             try {
                 scrController c = scrController.instance;
                 return songTitleRawValue = c != null && c.txtLevelName != null ? c.txtLevelName.text ?? "" : "";
-            } catch {
-                return songTitleRawValue = "";
-            }
+            } catch { return songTitleRawValue = ""; }
         }
     }
 
@@ -268,9 +246,7 @@ public static class GameStats {
                     musicTimeCache = FormatTime(a.time, hour) + " / " + FormatTime(a.clip.length, hour);
                 }
                 return musicTimeCache;
-            } catch {
-                return "0:00 / 0:00";
-            }
+            } catch { return "0:00 / 0:00"; }
         }
     }
 
@@ -285,9 +261,7 @@ public static class GameStats {
                 AudioSource song = scrConductor.instance != null ? scrConductor.instance.song : null;
                 if(song == null || song.clip == null || song.clip.length <= 0f) return musicRatioValue = 0f;
                 return musicRatioValue = Mathf.Clamp01(song.time / song.clip.length);
-            } catch {
-                return musicRatioValue = 0f;
-            }
+            } catch { return musicRatioValue = 0f; }
         }
     }
 
@@ -303,9 +277,7 @@ public static class GameStats {
                 float total = MapTotalSeconds();
                 if(total <= 0f) return mapRatioValue = 0f;
                 return mapRatioValue = Mathf.Clamp01(time / total);
-            } catch {
-                return mapRatioValue = 0f;
-            }
+            } catch { return mapRatioValue = 0f; }
         }
     }
 
@@ -333,9 +305,7 @@ public static class GameStats {
                     }
                 }
                 return mapTimeCache;
-            } catch {
-                return "0:00";
-            }
+            } catch { return "0:00"; }
         }
     }
 
@@ -387,9 +357,7 @@ public static class GameStats {
             if(lm == null || lm.listFloors == null || lm.listFloors.Count == 0) return mapTotalValue = 0f;
             scrFloor last = lm.listFloors[lm.listFloors.Count - 1];
             return mapTotalValue = last != null ? (float)last.entryTime : 0f;
-        } catch {
-            return mapTotalValue = 0f;
-        }
+        } catch { return mapTotalValue = 0f; }
     }
 
     private static string FormatTime(float seconds, bool forceHour = false) {

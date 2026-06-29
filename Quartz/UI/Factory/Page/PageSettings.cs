@@ -107,9 +107,7 @@ internal static class PageSettings {
 
                     mainRow.SetActive(isMainMatch);
 
-                    if(isMainMatch) {
-                        labelActivationMap[labelRow] = true;
-                    }
+                    if(isMainMatch) labelActivationMap[labelRow] = true;
                 }
 
                 foreach(var kvp in labelActivationMap) {

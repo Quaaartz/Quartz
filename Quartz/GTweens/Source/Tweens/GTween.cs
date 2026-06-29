@@ -158,9 +158,7 @@ public sealed class GTween {
     /// <param name="time">The simulated time in seconds.</param>
     /// <returns>The current GTween instance for method chaining.</returns>
     public GTween Simulate(float time) {
-        if(!IsPlaying) {
-            Start();
-        }
+        if(!IsPlaying) Start();
 
         bool loops = Loops > 0;
 

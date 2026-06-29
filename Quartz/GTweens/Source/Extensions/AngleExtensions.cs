@@ -10,9 +10,7 @@ internal static class AngleExtensions {
         return result;
     }
 
-    public static Vector3 Clamp360(Vector3 eulerAngles) {
-        return new Vector3(Clamp360(eulerAngles.X), Clamp360(eulerAngles.Y), Clamp360(eulerAngles.Z));
-    }
+    public static Vector3 Clamp360(Vector3 eulerAngles) => new Vector3(Clamp360(eulerAngles.X), Clamp360(eulerAngles.Y), Clamp360(eulerAngles.Z));
 
     /// <summary>
     /// Calculates the shortest difference between two given angles.
@@ -24,9 +22,7 @@ internal static class AngleExtensions {
         return delta;
     }
 
-    public static Vector3 DeltaAngle(Vector3 current, Vector3 target) {
-        return new Vector3(DeltaAngle(current.X, target.X), DeltaAngle(current.Y, target.Y), DeltaAngle(current.Z, target.Z));
-    }
+    public static Vector3 DeltaAngle(Vector3 current, Vector3 target) => new Vector3(DeltaAngle(current.X, target.X), DeltaAngle(current.Y, target.Y), DeltaAngle(current.Z, target.Z));
 
     public static float GetDestinationAngleDegrees(float origin, float destination, RotationMode mode) {
         switch(mode) {

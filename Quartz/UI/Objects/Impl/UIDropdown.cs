@@ -112,9 +112,7 @@ public class UIDropDown<T> : UIObject {
 
         RebuildList();
 
-        if(!Values.Contains(Value) && Values.Count > 0) {
-            Set(Values[0], false);
-        }
+        if(!Values.Contains(Value) && Values.Count > 0) Set(Values[0], false);
 
         OnLayoutChanged?.Invoke();
     }
@@ -152,9 +150,7 @@ public class UIDropDown<T> : UIObject {
 
             // Keep FontManager.ApplyToAll from resetting the row to the
             // global font when the user picks one.
-            if(text.GetComponent<FontExempt>() == null) {
-                text.gameObject.AddComponent<FontExempt>();
-            }
+            if(text.GetComponent<FontExempt>() == null) text.gameObject.AddComponent<FontExempt>();
         }
     }
 
@@ -204,9 +200,7 @@ public class UIDropDown<T> : UIObject {
     public void RebuildList() {
         if(ListObject == null) return;
 
-        foreach(Transform child in ListObject.transform) {
-            Object.Destroy(child.gameObject);
-        }
+        foreach(Transform child in ListObject.transform) Object.Destroy(child.gameObject);
         rowTexts.Clear();
 
         foreach(T item in Values) {

@@ -339,11 +339,10 @@ public static class SettingsImporter {
         }
     }
 
-    private static bool RestorePreviousProfile(string previous) {
-        return string.IsNullOrEmpty(previous)
+    private static bool RestorePreviousProfile(string previous) =>
+        string.IsNullOrEmpty(previous)
             || previous == ProfileManager.Active
             || ProfileManager.Apply(previous);
-    }
 
     public static SettingsImportResult Import(
         SettingsImportOption option,

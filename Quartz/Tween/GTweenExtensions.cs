@@ -114,12 +114,10 @@ public static class GTweenExtensions {
 
         public GTween GTRotate(Vector3 to, float duration) {
             Vector3 from = target == null ? to : target.localEulerAngles;
-            Vector3 targetAngle = to;
-
             Vector3 delta = new(
-                Mathf.DeltaAngle(from.x, targetAngle.x),
-                Mathf.DeltaAngle(from.y, targetAngle.y),
-                Mathf.DeltaAngle(from.z, targetAngle.z)
+                Mathf.DeltaAngle(from.x, to.x),
+                Mathf.DeltaAngle(from.y, to.y),
+                Mathf.DeltaAngle(from.z, to.z)
             );
 
             return GTweens.Extensions.GTweenExtensions.Tween(

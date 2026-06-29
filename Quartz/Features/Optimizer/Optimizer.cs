@@ -215,8 +215,7 @@ public static class Optimizer {
                 GarbageCollector.GCMode = GarbageCollector.Mode.Enabled;
                 GC.Collect();
             }
-        } catch {
-        }
+        } catch { }
         usingManualDefer = false;
         gcDeferred = false;
     }

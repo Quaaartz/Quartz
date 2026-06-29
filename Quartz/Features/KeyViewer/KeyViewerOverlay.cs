@@ -403,12 +403,8 @@ public static partial class KeyViewerOverlay {
         List<StatSlot> statSlots = [];
         BuildLayout(style, keySlots, statSlots);
 
-        foreach(KeySlot slot in keySlots) {
-            AddKey(keys, slot.Slot, slot.X, slot.Y, slot.W, slot.H);
-        }
-        foreach(StatSlot slot in statSlots) {
-            AddStat(slot.Total, slot.X, slot.Y, slot.W, slot.H);
-        }
+        foreach(KeySlot slot in keySlots) AddKey(keys, slot.Slot, slot.X, slot.Y, slot.W, slot.H);
+        foreach(StatSlot slot in statSlots) AddStat(slot.Total, slot.X, slot.Y, slot.W, slot.H);
 
         root.sizeDelta = GridSize(style);
 
@@ -416,9 +412,7 @@ public static partial class KeyViewerOverlay {
 
         totalCount = 0;
         foreach(Box box in boxes) {
-            if(!box.IsStat) {
-                totalCount += box.Count;
-            }
+            if(!box.IsStat) totalCount += box.Count;
         }
 
         AddReorganizeHandle();
@@ -459,9 +453,7 @@ public static partial class KeyViewerOverlay {
         void AddKeys(int[] codes, int count) {
             for(int i = 0; i < count && i < codes.Length; i++) {
                 int normalized = (int)Features.KeyLimiter.KeyLimiter.NormalizeKey((KeyCode)codes[i]);
-                if(normalized != 0 && seen.Add(normalized)) {
-                    result.Add(normalized);
-                }
+                if(normalized != 0 && seen.Add(normalized)) result.Add(normalized);
             }
         }
 
@@ -481,9 +473,7 @@ public static partial class KeyViewerOverlay {
                     break;
                 }
             }
-            if(same) {
-                return;
-            }
+            if(same) return;
         }
 
         Features.KeyLimiter.KeyLimiter.SetAllowedKeys([.. result]);
@@ -504,9 +494,7 @@ public static partial class KeyViewerOverlay {
             float dmScale = Mathf.Clamp(Conf.DmScale, 0.2f, 4f);
             root.localScale = new Vector3(dmScale, dmScale, 1f);
 
-            if(!Conf.DmNoteEffect) {
-                rainManager?.Clear();
-            }
+            if(!Conf.DmNoteEffect) rainManager?.Clear();
             return;
         }
 
@@ -533,9 +521,7 @@ public static partial class KeyViewerOverlay {
 
         if(!Conf.RainEnabled) rainManager?.Clear();
 
-        foreach(Box box in boxes) {
-            ApplyBoxColors(box);
-        }
+        foreach(Box box in boxes) ApplyBoxColors(box);
     }
 
     private static float ColX(int column) => (KeyW + KeyGap) * column;
@@ -556,9 +542,7 @@ public static partial class KeyViewerOverlay {
     // preview. v1 SimplePresets.BuildKey10/12/16/20.
     internal static void BuildLayout(int style, List<KeySlot> keys, List<StatSlot> stats) {
         // Front row: always the first 8 keys.
-        for(int i = 0; i < 8; i++) {
-            keys.Add(new KeySlot(i, ColX(i), 0f, KeyW, KeyH));
-        }
+        for(int i = 0; i < 8; i++) keys.Add(new KeySlot(i, ColX(i), 0f, KeyW, KeyH));
 
         // KPS/Total sit on the outer edges with the back-row keys between them.
         // (The Together/Apart setting no longer moves these boxes — it controls
@@ -579,16 +563,12 @@ public static partial class KeyViewerOverlay {
                 stats.Add(new StatSlot(true, ColX(6), RowGap, SpanW(2), KeyH));
                 break;
             case 2:
-                for(int i = 0; i < 8; i++) {
-                    keys.Add(new KeySlot(BackSeq16[i], ColX(i), RowGap, KeyW, KeyH));
-                }
+                for(int i = 0; i < 8; i++) keys.Add(new KeySlot(BackSeq16[i], ColX(i), RowGap, KeyW, KeyH));
                 stats.Add(new StatSlot(false, ColX(0), RowGap * 2f, SpanW(4), 30f));
                 stats.Add(new StatSlot(true, ColX(4), RowGap * 2f, SpanW(4), 30f));
                 break;
             case 3:
-                for(int i = 0; i < 8; i++) {
-                    keys.Add(new KeySlot(BackSeq16[i], ColX(i), RowGap, KeyW, KeyH));
-                }
+                for(int i = 0; i < 8; i++) keys.Add(new KeySlot(BackSeq16[i], ColX(i), RowGap, KeyW, KeyH));
                 keys.Add(new KeySlot(17, ColX(2), RowGap * 2f, KeyW, KeyH));
                 keys.Add(new KeySlot(16, ColX(3), RowGap * 2f, KeyW, KeyH));
                 keys.Add(new KeySlot(18, ColX(4), RowGap * 2f, KeyW, KeyH));
@@ -605,9 +585,7 @@ public static partial class KeyViewerOverlay {
             case 5:
                 // 14 keys: front row + a 6-key back row centred on columns 1-6,
                 // stats on a third row like the 20-key style.
-                for(int i = 0; i < 6; i++) {
-                    keys.Add(new KeySlot(8 + i, ColX(1 + i), RowGap, KeyW, KeyH));
-                }
+                for(int i = 0; i < 6; i++) keys.Add(new KeySlot(8 + i, ColX(1 + i), RowGap, KeyW, KeyH));
                 stats.Add(new StatSlot(false, ColX(0), RowGap * 2f, SpanW(2), KeyH));
                 stats.Add(new StatSlot(true, ColX(6), RowGap * 2f, SpanW(2), KeyH));
                 break;
@@ -646,9 +624,7 @@ public static partial class KeyViewerOverlay {
         }
 
         Row(0, row1, 0f);
-        if(row2 > 0) {
-            Row(8, row2, FootRowPitch);
-        }
+        if(row2 > 0) Row(8, row2, FootRowPitch);
 
         float blockH = row2 > 0 ? FootRowPitch + FootKeyH : FootKeyH;
         return new Vector2(blockW, blockH);
@@ -680,9 +656,7 @@ public static partial class KeyViewerOverlay {
         Vector2 footSize = BuildFootLayout(footCount, footSlots);
         footRoot.sizeDelta = footSize;
 
-        foreach(KeySlot slot in footSlots) {
-            AddFootKey(slot.Slot - KeyViewerSettings.FootSlotBase, slot.X, slot.Y, slot.W, slot.H);
-        }
+        foreach(KeySlot slot in footSlots) AddFootKey(slot.Slot - KeyViewerSettings.FootSlotBase, slot.X, slot.Y, slot.W, slot.H);
 
         AddFootReorganizeHandle();
     }
@@ -850,29 +824,19 @@ public static partial class KeyViewerOverlay {
         // is only the GameObject name / graph id; box identity is spec.KeyCode, so
         // reordering creation can't disturb key->count.
         int keyCount = 0;
-        while(keyCount < specs.Count && !specs[keyCount].IsStat && !specs[keyCount].IsGraph) {
-            keyCount++;
-        }
+        while(keyCount < specs.Count && !specs[keyCount].IsStat && !specs[keyCount].IsGraph) keyCount++;
         int[] keyOrder = new int[keyCount];
-        for(int i = 0; i < keyCount; i++) {
-            keyOrder[i] = i;
-        }
+        for(int i = 0; i < keyCount; i++) keyOrder[i] = i;
         System.Array.Sort(keyOrder, (a, b) => {
             int byRow = specs[b].Y.CompareTo(specs[a].Y);   // larger Y (bottom row) first
             return byRow != 0 ? byRow : b.CompareTo(a);      // same row: later JSON index first
         });
-        foreach(int i in keyOrder) {
-            AddDmNoteBox(i, specs[i]);
-        }
-        for(int i = keyCount; i < specs.Count; i++) {
-            AddDmNoteBox(i, specs[i]);
-        }
+        foreach(int i in keyOrder) AddDmNoteBox(i, specs[i]);
+        for(int i = keyCount; i < specs.Count; i++) AddDmNoteBox(i, specs[i]);
 
         totalCount = 0;
         foreach(Box box in boxes) {
-            if(!box.IsStat) {
-                totalCount += box.Count;
-            }
+            if(!box.IsStat) totalCount += box.Count;
         }
 
         AddReorganizeHandle();
@@ -945,9 +909,7 @@ public static partial class KeyViewerOverlay {
 
             int count = Mathf.Min(keyArr.Count, posArr.Count);
             for(int i = 0; i < count; i++) {
-                if(posArr[i] is not JObject p || JBool(p, "hidden", false)) {
-                    continue;
-                }
+                if(posArr[i] is not JObject p || JBool(p, "hidden", false)) continue;
 
                 DmNoteSpec spec = ParseDmNoteSpec(keyArr[i]?.ToString() ?? "", p, false);
                 result.Add(spec);
@@ -956,14 +918,10 @@ public static partial class KeyViewerOverlay {
 
             if(preset["statPositions"] is JObject statTable && statTable[tab] is JArray statArr) {
                 for(int i = 0; i < statArr.Count; i++) {
-                    if(statArr[i] is not JObject p || JBool(p, "hidden", false)) {
-                        continue;
-                    }
+                    if(statArr[i] is not JObject p || JBool(p, "hidden", false)) continue;
 
                     JObject statPosition = (p["position"] as JObject) ?? p;
-                    if(JBool(statPosition, "hidden", false)) {
-                        continue;
-                    }
+                    if(JBool(statPosition, "hidden", false)) continue;
 
                     DmNoteSpec spec = ParseDmNoteSpec(JStr(p, "statType", JStr(statPosition, "statType", "stat")), statPosition, true);
                     result.Add(spec);
@@ -975,13 +933,9 @@ public static partial class KeyViewerOverlay {
             // and stats.
             if(preset["graphPositions"] is JObject graphTable && graphTable[tab] is JArray graphArr) {
                 for(int i = 0; i < graphArr.Count; i++) {
-                    if(graphArr[i] is not JObject p || JBool(p, "hidden", false)) {
-                        continue;
-                    }
+                    if(graphArr[i] is not JObject p || JBool(p, "hidden", false)) continue;
                     JObject pos = (p["position"] as JObject) ?? p;
-                    if(JBool(pos, "hidden", false)) {
-                        continue;
-                    }
+                    if(JBool(pos, "hidden", false)) continue;
                     DmNoteSpec spec = ParseGraphSpec(pos);
                     result.Add(spec);
                     ExtendDmBounds(spec, ref minX, ref minY, ref maxX, ref maxY);
@@ -1016,14 +970,10 @@ public static partial class KeyViewerOverlay {
 
     private static string ResolveDmTab(JObject preset, JObject keysTable, JObject posTable) {
         string selected = JOptionalString(preset, "selectedKeyType");
-        if(!string.IsNullOrWhiteSpace(selected) && keysTable?[selected] != null && posTable?[selected] != null) {
-            return selected;
-        }
+        if(!string.IsNullOrWhiteSpace(selected) && keysTable?[selected] != null && posTable?[selected] != null) return selected;
 
         string configured = Conf.DmSelectedTab;
-        if(!string.IsNullOrWhiteSpace(configured) && keysTable?[configured] != null && posTable?[configured] != null) {
-            return configured;
-        }
+        if(!string.IsNullOrWhiteSpace(configured) && keysTable?[configured] != null && posTable?[configured] != null) return configured;
 
         if(keysTable != null) {
             foreach(JProperty prop in keysTable.Properties()) {
@@ -1159,9 +1109,7 @@ public static partial class KeyViewerOverlay {
         string ghost = JOptionalString(p, "ghostKey");
         spec.GhostKeyCode = string.IsNullOrEmpty(ghost) ? KeyCode.None : ResolveDmNoteKeyCode(ghost);
         spec.CountKey = JOptionalString(p, "countKey");
-        if(string.IsNullOrEmpty(spec.CountKey)) {
-            spec.CountKey = spec.KeyName;
-        }
+        if(string.IsNullOrEmpty(spec.CountKey)) spec.CountKey = spec.KeyName;
         spec.ClassName = JOptionalString(p, "className") ?? "";
         spec.InactiveImage = JOptionalString(p, "inactiveImage") ?? "";
         spec.ActiveImage = JOptionalString(p, "activeImage") ?? "";
@@ -1171,12 +1119,8 @@ public static partial class KeyViewerOverlay {
 
         spec.Bg = HexToColor(bgHex, 0.9f);
         spec.ActiveBg = HexToColor(activeBgHex, 0.9f);
-        if(JBool(p, "idleTransparent", false)) {
-            spec.Bg.a = 0f;
-        }
-        if(JBool(p, "activeTransparent", false)) {
-            spec.ActiveBg.a = 0f;
-        }
+        if(JBool(p, "idleTransparent", false)) spec.Bg.a = 0f;
+        if(JBool(p, "activeTransparent", false)) spec.ActiveBg.a = 0f;
 
         spec.Outline = HexToColor(borderHex, 0.9f);
         spec.ActiveOutline = HexToColor(activeBorderHex, spec.Outline.a);
@@ -1407,22 +1351,14 @@ public static partial class KeyViewerOverlay {
             || string.Equals(align, "bottom", StringComparison.OrdinalIgnoreCase))) {
             return TextAlignmentOptions.Center;
         }
-        if(string.Equals(align, "top", StringComparison.OrdinalIgnoreCase)) {
-            return counter ? TextAlignmentOptions.Bottom : TextAlignmentOptions.Top;
-        }
-        if(string.Equals(align, "bottom", StringComparison.OrdinalIgnoreCase)) {
-            return counter ? TextAlignmentOptions.Top : TextAlignmentOptions.Bottom;
-        }
+        if(string.Equals(align, "top", StringComparison.OrdinalIgnoreCase)) return counter ? TextAlignmentOptions.Bottom : TextAlignmentOptions.Top;
+        if(string.Equals(align, "bottom", StringComparison.OrdinalIgnoreCase)) return counter ? TextAlignmentOptions.Top : TextAlignmentOptions.Bottom;
         if(!between && (string.Equals(align, "left", StringComparison.OrdinalIgnoreCase)
             || string.Equals(align, "right", StringComparison.OrdinalIgnoreCase))) {
             return TextAlignmentOptions.Center;
         }
-        if(string.Equals(align, "left", StringComparison.OrdinalIgnoreCase)) {
-            return counter ? TextAlignmentOptions.MidlineLeft : TextAlignmentOptions.MidlineRight;
-        }
-        if(string.Equals(align, "right", StringComparison.OrdinalIgnoreCase)) {
-            return counter ? TextAlignmentOptions.MidlineRight : TextAlignmentOptions.MidlineLeft;
-        }
+        if(string.Equals(align, "left", StringComparison.OrdinalIgnoreCase)) return counter ? TextAlignmentOptions.MidlineLeft : TextAlignmentOptions.MidlineRight;
+        if(string.Equals(align, "right", StringComparison.OrdinalIgnoreCase)) return counter ? TextAlignmentOptions.MidlineRight : TextAlignmentOptions.MidlineLeft;
         return TextAlignmentOptions.Center;
     }
 
@@ -1699,17 +1635,11 @@ public static partial class KeyViewerOverlay {
     private static KeyCode ResolveDmNoteKeyCode(string name) {
         if(string.IsNullOrEmpty(name)) return KeyCode.None;
 
-        if(name.Length > 1 && int.TryParse(name, out int numeric)) {
-            return Features.KeyLimiter.KeyLimiter.NormalizeNumericKey(numeric);
-        }
+        if(name.Length > 1 && int.TryParse(name, out int numeric)) return Features.KeyLimiter.KeyLimiter.NormalizeNumericKey(numeric);
 
         string normalized = name.Replace(" ", "").Replace("_", "").Replace("-", "");
-        if(normalized.StartsWith("KEY", StringComparison.OrdinalIgnoreCase) && normalized.Length == 4) {
-            normalized = normalized[3..];
-        }
-        if(normalized.StartsWith("DIGIT", StringComparison.OrdinalIgnoreCase) && normalized.Length == 6) {
-            normalized = normalized[5..];
-        }
+        if(normalized.StartsWith("KEY", StringComparison.OrdinalIgnoreCase) && normalized.Length == 4) normalized = normalized[3..];
+        if(normalized.StartsWith("DIGIT", StringComparison.OrdinalIgnoreCase) && normalized.Length == 6) normalized = normalized[5..];
         // Numpad keys: the DM Note app names them "NUMPAD <x>" (e.g. "NUMPAD
         // RETURN", "NUMPAD MULTIPLY"), which don't match Unity's "Keypad*"
         // enum, so map them explicitly.
@@ -1733,9 +1663,7 @@ public static partial class KeyViewerOverlay {
         // Enum.TryParse accepts numeric strings as raw enum values, so "3"
         // would become the undefined (KeyCode)3 instead of Alpha3 — digit
         // names must fall through to the single-char mapping below.
-        if(!char.IsDigit(normalized[0]) && Enum.TryParse(normalized, true, out KeyCode parsed)) {
-            return Features.KeyLimiter.KeyLimiter.NormalizeKey(parsed);
-        }
+        if(!char.IsDigit(normalized[0]) && Enum.TryParse(normalized, true, out KeyCode parsed)) return Features.KeyLimiter.KeyLimiter.NormalizeKey(parsed);
         switch(normalized.ToUpperInvariant()) {
             case "DOT":
             case "PERIOD": return KeyCode.Period;
@@ -1809,9 +1737,7 @@ public static partial class KeyViewerOverlay {
 
         string s = hex.Trim();
         try {
-            if(string.Equals(s, "transparent", StringComparison.OrdinalIgnoreCase)) {
-                return new Color(0f, 0f, 0f, 0f);
-            }
+            if(string.Equals(s, "transparent", StringComparison.OrdinalIgnoreCase)) return new Color(0f, 0f, 0f, 0f);
 
             if(s.StartsWith("rgb", StringComparison.OrdinalIgnoreCase)) {
                 int lp = s.IndexOf('(');
@@ -1844,8 +1770,7 @@ public static partial class KeyViewerOverlay {
                 int a = h.Length == 8 ? Convert.ToInt32(h[6..8], 16) : Mathf.RoundToInt(alpha * 255f);
                 return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
             }
-        } catch {
-        }
+        } catch { }
 
         return new Color(1f, 1f, 1f, alpha);
     }
@@ -2140,9 +2065,7 @@ public static partial class KeyViewerOverlay {
             // (front), matching the old sibling-row ordering.
             for(int g = 0; g < groups.Length; g++) {
                 List<RawRain> active = groups[g];
-                for(int i = 0; i < active.Count; i++) {
-                    AddDrop(vh, layer, active[i]);
-                }
+                for(int i = 0; i < active.Count; i++) AddDrop(vh, layer, active[i]);
             }
         }
 
@@ -2238,9 +2161,7 @@ public static partial class KeyViewerOverlay {
 
         public void SetLayer(RectTransform value) {
             pending.Clear();
-            for(int i = 0; i < groups.Length; i++) {
-                groups[i].Clear();
-            }
+            for(int i = 0; i < groups.Length; i++) groups[i].Clear();
 
             if(graphic != null) {
                 Destroy(graphic.gameObject);
@@ -2268,9 +2189,7 @@ public static partial class KeyViewerOverlay {
 
         public void Clear() {
             pending.Clear();
-            for(int i = 0; i < groups.Length; i++) {
-                groups[i].Clear();
-            }
+            for(int i = 0; i < groups.Length; i++) groups[i].Clear();
             if(graphic != null) graphic.SetVerticesDirty();
         }
 
@@ -2296,9 +2215,7 @@ public static partial class KeyViewerOverlay {
                     RawRain raw = active[read];
                     float trail = raw.EndTime < 0f ? 0f : Mathf.Max(0f, (now - raw.EndTime) * raw.Speed);
                     if(trail <= raw.TrackHeight + 8f) {
-                        if(write != read) {
-                            active[write] = raw;
-                        }
+                        if(write != read) active[write] = raw;
                         write++;
                         continue;
                     }
@@ -2321,9 +2238,7 @@ public static partial class KeyViewerOverlay {
 
     private static void BeginDmNoteRain(Box box, float now) {
         DmNoteSpec spec = box.Dm;
-        if(!Conf.DmNoteEffect || spec == null || !spec.NoteEnabled || rainManager == null) {
-            return;
-        }
+        if(!Conf.DmNoteEffect || spec == null || !spec.NoteEnabled || rainManager == null) return;
 
         float delay = dmDelayedNoteEnabled ? dmShortNoteThresholdMs / 1000f : 0f;
         if(delay > 0.0001f) {
@@ -2349,24 +2264,18 @@ public static partial class KeyViewerOverlay {
 
         float minLengthSeconds = dmNoteSpeed > 0f ? dmShortNoteMinLengthPx / dmNoteSpeed : 0f;
         float end = now;
-        if(forceMinLength || minLengthSeconds > 0.0001f) {
-            end = Mathf.Max(end, box.LastRain.StartTime + Mathf.Max(0.001f, minLengthSeconds));
-        }
+        if(forceMinLength || minLengthSeconds > 0.0001f) end = Mathf.Max(end, box.LastRain.StartTime + Mathf.Max(0.001f, minLengthSeconds));
 
         box.LastRain.EndTime = end;
         box.LastRain = null;
     }
 
     private static void UpdateDelayedDmNote(Box box, float now) {
-        if(!box.DelayedNotePending || now < box.DelayedStartTime) {
-            return;
-        }
+        if(!box.DelayedNotePending || now < box.DelayedStartTime) return;
 
         DmNoteSpec spec = box.Dm;
         box.DelayedNotePending = false;
-        if(!Conf.DmNoteEffect || spec == null || !spec.NoteEnabled || rainManager == null) {
-            return;
-        }
+        if(!Conf.DmNoteEffect || spec == null || !spec.NoteEnabled || rainManager == null) return;
 
         box.LastRain = SpawnDmRain(box, box.DelayedStartTime, false);
         if(box.DelayedReleasedBeforeStart) {
@@ -2396,15 +2305,11 @@ public static partial class KeyViewerOverlay {
         // settings change, so re-deriving them (8 reads + 8 Mathf.Clamp) every
         // frame here was pure waste — removed.
 
-        while(pressLog.Count > 0 && now - pressLog.Peek() > 1f) {
-            pressLog.Dequeue();
-        }
+        while(pressLog.Count > 0 && now - pressLog.Peek() > 1f) pressLog.Dequeue();
 
         if(now >= nextKpsSample) {
             int kps = pressLog.Count;
-            if(kps > kpsMax) {
-                kpsMax = kps;
-            }
+            if(kps > kpsMax) kpsMax = kps;
             if(kps > 0) {
                 kpsSum += kps;
                 kpsSamples++;
@@ -2450,9 +2355,7 @@ public static partial class KeyViewerOverlay {
             UpdateDelayedDmNote(box, now);
 
             if(ghostPressed && !box.GhostPressed) {
-                if(Conf.DmNoteEffect && spec.NoteEnabled && rainManager != null) {
-                    box.LastGhostRain = SpawnDmRain(box, now, true);
-                }
+                if(Conf.DmNoteEffect && spec.NoteEnabled && rainManager != null) box.LastGhostRain = SpawnDmRain(box, now, true);
                 if(rainOnly) {
                     totalCount++;
                     pressLog.Enqueue(now);
@@ -2509,9 +2412,7 @@ public static partial class KeyViewerOverlay {
                     return;
                 }
             }
-            if(cssFx.Count > 0 && root != null && root.gameObject.activeSelf) {
-                CssTick(Time.unscaledTime);
-            }
+            if(cssFx.Count > 0 && root != null && root.gameObject.activeSelf) CssTick(Time.unscaledTime);
         }
 
         private void Update() {
@@ -2520,28 +2421,18 @@ public static partial class KeyViewerOverlay {
             bool isReorganizing = UICore.IsReorganizing;
             bool overlayVisible = (Panels.PanelsOverlay.IsEnabled && Conf.Enabled && (Conf.ShowOutsideGame || GameStats.InGame)) || isReorganizing;
             bool show = (Conf.IsSimpleMode || Conf.IsDmNoteMode) && overlayVisible;
-            if(raycaster != null && raycaster.enabled != isReorganizing) {
-                raycaster.enabled = isReorganizing;
-            }
-            if(root.gameObject.activeSelf != show) {
-                root.gameObject.SetActive(show);
-            }
+            if(raycaster != null && raycaster.enabled != isReorganizing) raycaster.enabled = isReorganizing;
+            if(root.gameObject.activeSelf != show) root.gameObject.SetActive(show);
 
-            if(dragObj != null && dragObj.activeSelf != isReorganizing) {
-                dragObj.SetActive(isReorganizing);
-            }
+            if(dragObj != null && dragObj.activeSelf != isReorganizing) dragObj.SetActive(isReorganizing);
 
             // Foot element: shown only in simple mode with foot keys configured,
             // and draggable on its own in Reorganize mode.
             bool footShow = show && Conf.IsSimpleMode && Conf.FootKeyCount() > 0;
-            if(footRoot != null && footRoot.gameObject.activeSelf != footShow) {
-                footRoot.gameObject.SetActive(footShow);
-            }
+            if(footRoot != null && footRoot.gameObject.activeSelf != footShow) footRoot.gameObject.SetActive(footShow);
             if(footDragObj != null) {
                 bool footDragActive = isReorganizing && footShow;
-                if(footDragObj.activeSelf != footDragActive) {
-                    footDragObj.SetActive(footDragActive);
-                }
+                if(footDragObj.activeSelf != footDragActive) footDragObj.SetActive(footDragActive);
             }
 
             if(!show) return;
@@ -2575,9 +2466,7 @@ public static partial class KeyViewerOverlay {
             }
 
             // KPS window: drop presses older than one second.
-            while(pressLog.Count > 0 && now - pressLog.Peek() > 1f) {
-                pressLog.Dequeue();
-            }
+            while(pressLog.Count > 0 && now - pressLog.Peek() > 1f) pressLog.Dequeue();
 
             TMP_FontAsset font = FontManager.Current;
 
@@ -2619,15 +2508,11 @@ public static partial class KeyViewerOverlay {
                         // Only the per-key KPS readout drains box.KpsLog; when it's
                         // off (the default) nothing ever dequeues, so an unconditional
                         // enqueue grows the queue unbounded for the whole session.
-                        if(Conf.PerKeyKps) {
-                            box.KpsLog.Enqueue(now);
-                        }
+                        if(Conf.PerKeyKps) box.KpsLog.Enqueue(now);
                         countsDirty = true;
                     }
 
-                    if(Conf.RainEnabled && box.RainGroup != 0 && rainManager != null) {
-                        box.LastRain = SpawnRain(box, now);
-                    }
+                    if(Conf.RainEnabled && box.RainGroup != 0 && rainManager != null) box.LastRain = SpawnRain(box, now);
                 } else if(!pressed && box.Pressed && box.LastRain != null) {
                     // Release: freeze the drop's trailing edge.
                     box.LastRain.EndTime = now;
@@ -2671,9 +2556,7 @@ public static partial class KeyViewerOverlay {
                 if(Conf.PerKeyKps) {
                     // Per-key KPS: this key's presses in the last second. The
                     // window slides every frame, so recompute unconditionally.
-                    while(box.KpsLog.Count > 0 && now - box.KpsLog.Peek() > 1f) {
-                        box.KpsLog.Dequeue();
-                    }
+                    while(box.KpsLog.Count > 0 && now - box.KpsLog.Peek() > 1f) box.KpsLog.Dequeue();
                     int kps = box.KpsLog.Count;
                     if(box.LastShown != kps) {
                         box.LastShown = kps;

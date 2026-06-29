@@ -73,9 +73,7 @@ public static partial class UiHider {
             return;
         }
 
-        if(ShouldToggleRecordingMode()) {
-            ToggleRecordingMode();
-        }
+        if(ShouldToggleRecordingMode()) ToggleRecordingMode();
 
         bool active = IsFeatureActive();
         if(!active && !lastActive) {
@@ -134,9 +132,7 @@ public static partial class UiHider {
             SetMemberGameObjectActiveIfMatches(uiController, "difficultyFadeContainer", hideTimingTarget);
         }
 
-        if(HasSteamBranchName()) {
-            SetBetaObjectsActiveIfMatches(hideBeta);
-        }
+        if(HasSteamBranchName()) SetBetaObjectsActiveIfMatches(hideBeta);
 
         SetGameObjectActiveIfMatches(
             uiController.txtLevelName != null ? uiController.txtLevelName.gameObject : null,

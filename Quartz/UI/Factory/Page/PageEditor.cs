@@ -3,7 +3,6 @@ using Quartz.UI.Generator;
 using Quartz.UI.Objects.Impl;
 using Quartz.UI.Utility;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Quartz.UI.Factory.Page;
 

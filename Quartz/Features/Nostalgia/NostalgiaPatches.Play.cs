@@ -183,9 +183,8 @@ public static partial class Nostalgia {
             __instance.transform.localRotation = scrCamera.instance.transform.rotation;
             if(meshRenderer != null) {
                 var tweens = DOTween.TweensByTarget(meshRenderer.material);
-                if(tweens != null && tweens.Count > 0) {
+                if(tweens != null && tweens.Count > 0)
                     tweens[0].SetEase(Ease.InExpo);
-                }
             }
         }
     }

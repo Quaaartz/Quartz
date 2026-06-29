@@ -90,8 +90,7 @@ public static class UmmInterop {
                     if(info != null && ReadMember(info, "Id") is string id && !string.IsNullOrEmpty(id)) ids.Add(id);
                 }
             }
-        } catch {
-        }
+        } catch { }
         return ids;
     }
 
@@ -124,8 +123,7 @@ public static class UmmInterop {
                     if(info != null && ReadMember(info, "Id") is string id && !string.IsNullOrEmpty(id)) ids.Add(id);
                 }
             }
-        } catch {
-        }
+        } catch { }
         return ids;
     }
 

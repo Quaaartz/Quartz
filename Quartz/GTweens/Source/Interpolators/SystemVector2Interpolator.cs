@@ -8,12 +8,10 @@ public sealed class SystemVector2Interpolator : IInterpolator<Vector2> {
 
     SystemVector2Interpolator() { }
 
-    public Vector2 Evaluate(Vector2 initialValue, Vector2 finalValue, float time, EasingDelegate easingDelegate) {
-        return new Vector2(
+    public Vector2 Evaluate(Vector2 initialValue, Vector2 finalValue, float time, EasingDelegate easingDelegate) => new Vector2(
             easingDelegate(initialValue.X, finalValue.X, time),
             easingDelegate(initialValue.Y, finalValue.Y, time)
             );
-    }
 
     public Vector2 Subtract(Vector2 initialValue, Vector2 finalValue) => finalValue - initialValue;
 

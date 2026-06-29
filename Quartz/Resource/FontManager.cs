@@ -148,11 +148,8 @@ public static class FontManager {
                 if(string.IsNullOrWhiteSpace(name)) continue;
 
                 fontFiles[name] = path;
-                if(custom) {
-                    customNames.Add(name);
-                } else {
-                    customNames.Remove(name);
-                }
+                if(custom) customNames.Add(name);
+                else customNames.Remove(name);
             }
         } catch(Exception e) {
             MainCore.Log.Wrn($"[FontManager] font scan failed: {e.Message}");
@@ -308,9 +305,7 @@ public static class FontManager {
     private static string Sanitize(string s) {
         if(string.IsNullOrWhiteSpace(s)) return null;
 
-        foreach(char c in Path.GetInvalidFileNameChars()) {
-            s = s.Replace(c, ' ');
-        }
+        foreach(char c in Path.GetInvalidFileNameChars()) s = s.Replace(c, ' ');
 
         s = s.Trim();
         return string.IsNullOrWhiteSpace(s) ? null : s;
@@ -426,16 +421,10 @@ public static class FontManager {
     // The bundled SUIT fallback is owned by ResourceManager, so it is only freed
     // here when the default was built from DefaultFontFile instead.
     public static void Dispose() {
-        foreach(TMP_FontAsset asset in cache.Values) {
-            DestroyFontAsset(asset);
-        }
+        foreach(TMP_FontAsset asset in cache.Values) DestroyFontAsset(asset);
         cache.Clear();
 
-        foreach(Font font in sourceFonts) {
-            if(font != null) {
-                UnityEngine.Object.Destroy(font);
-            }
-        }
+        foreach(Font font in sourceFonts) if(font != null) UnityEngine.Object.Destroy(font);
         sourceFonts.Clear();
         sourceByName.Clear();
 
@@ -463,11 +452,7 @@ public static class FontManager {
 
         Texture2D[] atlases = asset.atlasTextures;
         if(atlases != null) {
-            foreach(Texture2D tex in atlases) {
-                if(tex != null) {
-                    UnityEngine.Object.Destroy(tex);
-                }
-            }
+            foreach(Texture2D tex in atlases) if(tex != null) UnityEngine.Object.Destroy(tex);
         }
 
         UnityEngine.Object.Destroy(asset);

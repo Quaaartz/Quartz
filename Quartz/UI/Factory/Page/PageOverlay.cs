@@ -461,9 +461,7 @@ internal static class PageOverlay {
                                 StatEntry added = new(statId);
                                 // A custom-text line has no meaningful "Text"
                                 // label prefix, so default it to value-only.
-                                if(statId == "text") {
-                                    added.ShowLabel = false;
-                                }
+                                if(statId == "text") added.ShowLabel = false;
                                 panel.Stats.Add(added);
                             }
                             Save();
@@ -709,10 +707,7 @@ internal static class PageOverlay {
         Action<float> setter,
         Action live, Action save
     ) {
-        float Snap(float v) {
-            float snapped = Mathf.Round(v / step) * step;
-            return Mathf.Clamp(snapped, min, max);
-        }
+        float Snap(float v) => Mathf.Clamp(Mathf.Round(v / step) * step, min, max);
 
         UISlider s = GenerateUI.Slider(
             GenerateUI.Row(body),
@@ -1053,9 +1048,8 @@ internal static class PageOverlay {
     };
 
     private static string StatDefaultLabel(string id) {
-        foreach(PanelsOverlay.StatDef stat in PanelsOverlay.Catalog) {
+        foreach(PanelsOverlay.StatDef stat in PanelsOverlay.Catalog)
             if(stat.Id == id) return stat.Label;
-        }
         return id;
     }
 
@@ -1141,9 +1135,8 @@ internal static class PageOverlay {
     // wires it to reorder the section among its siblings. The header bar is
     // inset to make room. Dropping commits the new order via CommitPanelOrder.
     private static void AddPanelLayerHandle(GenerateUI.CollapsibleSection sec, PanelConfig panel) {
-        if(sec.HeaderObj.transform.Find("Bar") is RectTransform barRect) {
+        if(sec.HeaderObj.transform.Find("Bar") is RectTransform barRect)
             barRect.offsetMin = new Vector2(44f, barRect.offsetMin.y);
-        }
 
         GameObject handle = new("LayerHandle");
         handle.transform.SetParent(sec.HeaderObj.transform, false);
@@ -1412,9 +1405,7 @@ internal static class PageOverlay {
             reflowCapture.Clear();
             for(int i = 0; i < container.childCount; i++) {
                 Transform child = container.GetChild(i);
-                if(child == Row || child.GetComponent<StatRowMarker>() == null) {
-                    continue;
-                }
+                if(child == Row || child.GetComponent<StatRowMarker>() == null) continue;
                 RectTransform rt = (RectTransform)child;
                 reflowCapture.Add((rt, rt.anchoredPosition));
             }
