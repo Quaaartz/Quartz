@@ -265,7 +265,7 @@ public static class KeyLimiter {
     // rather than the Right-Alt / Right-Control virtual keys Input.GetKey
     // watches, so a viewer box bound to RightAlt/RightControl never lit. The
     // SkyHook hook does see them (it's how the limiter blocks them), so the
-    // chatter-blocker hook prefix forwards every key edge here and the viewer
+    // chatter-blocker hook prefix forwards those edges here and the viewer
     // consults this as a fallback when Input.GetKey comes up empty.
     //
     // Written from the SkyHook thread (NoteHookEvent) and read from the main
@@ -292,14 +292,16 @@ public static class KeyLimiter {
 
     // Volatile mirror of (any hook key currently held), maintained under the
     // lock. Both collections are only ever populated by SkyHook edges for keys
-    // Unity's Input can't see, so they stay empty for the common case. The
-    // KeyViewer box loop calls HookKeyHeld for every un-pressed key every frame
-    // (and in menus, since ShowOutsideGame defaults on); this flag lets that path
-    // skip the lock entirely when no hook keys are held.
+    // Unity's Input can't see, so they stay empty for the common case. This flag
+    // lets the viewer/capture fallback skip the lock entirely when no hook-only
+    // keys are held.
     private static volatile bool hookActive;
 
+    private static bool IsHookOnlyKey(KeyCode key)
+        => key is KeyCode.RightAlt or KeyCode.RightControl;
+
     public static void NoteHookEvent(KeyCode key, bool pressed) {
-        if(key == KeyCode.None) return;
+        if(!IsHookOnlyKey(key)) return;
         lock(hookHeldUntil) {
             if(pressed) {
                 // IsWindowsRuntime() reads Application.platform — already done on

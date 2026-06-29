@@ -79,6 +79,8 @@ public static partial class KeyViewerOverlay {
     private static int totalCount;
     private static bool countsDirty;
     private static float nextCountsSave;
+    private static bool inputWasActive;
+    private static bool inputPrimed;
 
     private sealed class Box {
         public KeyCode Key;
@@ -370,6 +372,8 @@ public static partial class KeyViewerOverlay {
         kpsSum = 0;
         kpsSamples = 0;
         nextKpsSample = 0f;
+        inputWasActive = false;
+        inputPrimed = false;
 
         if(Conf.IsDmNoteMode) {
             BuildDmNote();
@@ -1515,15 +1519,27 @@ public static partial class KeyViewerOverlay {
     // rare in play; the hook-based KeyLimiter path stays NumLock-independent.)
     private static bool KeyHeld(KeyCode key) {
         if(key == KeyCode.None) return false;
-        if(Input.GetKey(key)) return true;
-        KeyCode twin = NumpadNavTwin(key);
-        if(twin != KeyCode.None && Input.GetKey(twin)) return true;
+        if(!Application.isFocused) return false;
+
+        try {
+            if(Input.GetKey(key)) return true;
+            KeyCode twin = NumpadNavTwin(key);
+            if(twin != KeyCode.None && Input.GetKey(twin)) return true;
+        } catch {
+            return false;
+        }
+
         // Unity's Input is blind to the Korean Hangul/Hanja keys (which map to
         // RightAlt/RightControl); fall back to the SkyHook-fed held state, the
-        // only path that sees them. Additive — a no-op for keys Unity already
-        // reports, so normal keys are unaffected.
-        return Features.KeyLimiter.KeyLimiter.HookKeyHeld(key);
+        // only path that sees them. Keep this scoped to those hook-only keys:
+        // normal key state must come from Unity's per-frame Input snapshot, like
+        // JipperKeyViewer, or missed hook release edges can turn into phantom
+        // holds and delayed count bursts.
+        return IsHookFallbackKey(key) && Features.KeyLimiter.KeyLimiter.HookKeyHeld(key);
     }
+
+    private static bool IsHookFallbackKey(KeyCode key)
+        => key is KeyCode.RightAlt or KeyCode.RightControl;
 
     // The navigation key Unity's legacy Input reports for each numpad key while
     // NumLock is off. KeyCode.None for non-numpad keys (no fallback).
@@ -2230,6 +2246,98 @@ public static partial class KeyViewerOverlay {
         countsDirty = true;
     }
 
+    private static void ResetInputState(float now, bool clearTransientStats) {
+        foreach(Box box in boxes) {
+            bool changed = box.Pressed || box.RawPressed || box.GhostPressed || box.DisplayTargetPressed
+                || box.DelayedNotePending || box.LastRain != null || box.LastGhostRain != null;
+
+            if(box.LastRain != null) {
+                box.LastRain.EndTime = now;
+                box.LastRain = null;
+            }
+            if(box.LastGhostRain != null) {
+                box.LastGhostRain.EndTime = now;
+                box.LastGhostRain = null;
+            }
+
+            box.Pressed = false;
+            box.RawPressed = false;
+            box.GhostPressed = false;
+            box.DisplayTargetPressed = false;
+            box.DisplayTargetTime = now;
+            box.DelayedNotePending = false;
+            box.DelayedReleasedBeforeStart = false;
+            box.DelayedDownTime = 0f;
+            box.DelayedStartTime = 0f;
+            box.DelayedReleaseTime = -1f;
+
+            if(changed) ApplyBoxColors(box);
+        }
+
+        if(clearTransientStats) {
+            pressLog.Clear();
+            kpsMax = 0;
+            kpsSum = 0;
+            kpsSamples = 0;
+            nextKpsSample = 0f;
+        }
+    }
+
+    private static void PrimeInputState(float now) {
+        foreach(Box box in boxes) {
+            if(box.IsStat) continue;
+
+            bool pressed = KeyHeld(box.Key);
+            bool ghostPressed = false;
+
+            if(box.Dm != null) {
+                int limiterMode = Mathf.Clamp(Conf.DmOutOfLimiterMode, 0, 2);
+                bool blocked = box.Key != KeyCode.None && pressed && Features.KeyLimiter.KeyLimiter.ShouldBlockKey(box.Key);
+                bool hidden = blocked && limiterMode == 0;
+                bool rainOnly = blocked && limiterMode == 1;
+                bool physicalPressed = pressed && !hidden && !rainOnly;
+                ghostPressed = (rainOnly || KeyHeld(box.Dm.GhostKeyCode)) && !hidden;
+
+                box.RawPressed = physicalPressed;
+                box.Pressed = physicalPressed;
+                box.DisplayTargetPressed = physicalPressed;
+                box.DisplayTargetTime = now;
+                box.GhostPressed = ghostPressed;
+                box.DelayedNotePending = false;
+                box.DelayedReleasedBeforeStart = false;
+                box.DelayedReleaseTime = -1f;
+                ApplyBoxColors(box);
+                continue;
+            }
+
+            if(Conf.RainEnabled && box.RainGroup != 0 && box.GhostKey != KeyCode.None)
+                ghostPressed = KeyHeld(box.GhostKey);
+
+            box.Pressed = pressed;
+            box.GhostPressed = ghostPressed;
+            ApplyBoxColors(box);
+        }
+    }
+
+    private static bool InputReady(float now) {
+        if(!inputWasActive) {
+            inputWasActive = true;
+            inputPrimed = false;
+        }
+
+        if(inputPrimed) return true;
+
+        PrimeInputState(now);
+        inputPrimed = true;
+        return false;
+    }
+
+    private static void MarkInputInactive(float now, bool clearTransientStats) {
+        if(inputWasActive || inputPrimed) ResetInputState(now, clearTransientStats);
+        inputWasActive = false;
+        inputPrimed = false;
+    }
+
     private static void BeginDmNoteRain(Box box, float now) {
         DmNoteSpec spec = box.Dm;
         if(!Conf.DmNoteEffect || spec == null || !spec.NoteEnabled || rainManager == null) return;
@@ -2429,9 +2537,11 @@ public static partial class KeyViewerOverlay {
                 if(footDragObj.activeSelf != footDragActive) footDragObj.SetActive(footDragActive);
             }
 
-            if(!show) return;
-
             float now = Time.unscaledTime;
+            if(!show || !Application.isFocused) {
+                MarkInputInactive(now, clearTransientStats: !show);
+                return;
+            }
 
             if(Conf.IsDmNoteMode) {
                 // Position only moves while dragging in Reorganize mode; gate the
@@ -2441,6 +2551,7 @@ public static partial class KeyViewerOverlay {
                     Conf.DmOffsetX = stored.x;
                     Conf.DmOffsetY = stored.y;
                 }
+                if(!InputReady(now)) return;
                 UpdateDmNote(now);
                 return;
             }
@@ -2458,6 +2569,8 @@ public static partial class KeyViewerOverlay {
                 Conf.OffsetX = stored.x;
                 Conf.OffsetY = stored.y;
             }
+
+            if(!InputReady(now)) return;
 
             // KPS window: drop presses older than one second.
             while(pressLog.Count > 0 && now - pressLog.Peek() > 1f) pressLog.Dequeue();
