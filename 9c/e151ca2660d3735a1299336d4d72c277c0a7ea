@@ -1,0 +1,132 @@
+Quartz/UI/Factory/Page/PageOverlay.cs
+  s_5d2da5e81f5b45::t_3e00f20a81d121 154
+Quartz/Features/Tweaks/TweaksSettings.cs
+  s_5d2da5e81f5b45::t_09a2b5483e5ea4 35-36
+Quartz/Features/Nostalgia/NostalgiaPatches.Twirl.cs
+  s_5d2da5e81f5b45::t_1767673a54ffea 102
+Quartz/GTweens/Source/Tweeners/SystemColorTweener.cs
+  s_5d2da5e81f5b45::t_33ce773a6e76b8 9
+Quartz/UI/Factory/Page/PageSearch.cs
+  s_5d2da5e81f5b45::t_24ca366a10b057 128
+  s_5d2da5e81f5b45::t_88cfcaac2872be 106
+Quartz/GTweens/Source/Tweeners/SystemVector4Tweener.cs
+  s_5d2da5e81f5b45::t_c7ae402b876013 15
+Quartz/Resource/FontManager.cs
+  s_5d2da5e81f5b45::t_983442a567f48f 510
+Quartz/UI/Objects/Impl/UISlider.cs
+  s_5d2da5e81f5b45::t_237416ad82ba91 115
+Quartz/UI/Utility/TMPTextShadow.cs
+  s_5d2da5e81f5b45::t_928beb2f313e0e 192-193
+  s_5d2da5e81f5b45::t_aecd8b5d21da51 70
+  s_5d2da5e81f5b45::t_a38808d35ce745 269,272
+Quartz/Features/Interop/SettingsImporter.cs
+  s_5d2da5e81f5b45::t_e0a7e1d95bb6d5 209
+  s_5d2da5e81f5b45::t_63034598e3149b 1987
+Quartz/Features/KeyViewer/KeyViewerOverlay.Image.cs
+  s_5d2da5e81f5b45::t_33a955db15bf78 83
+  s_5d2da5e81f5b45::t_79d203c00c85ba 93
+Quartz/UI/Factory/Page/PageKeyViewer.cs
+  s_5d2da5e81f5b45::t_bf0114eb266d0c 1077
+Quartz/UI/Factory/Page/PageSettings.cs
+  s_5d2da5e81f5b45::t_affce67ac0f9fb 96
+  s_5d2da5e81f5b45::t_d717331cd2bb4a 110
+  s_5d2da5e81f5b45::t_ef4461ee9ac29c 82
+  s_5d2da5e81f5b45::t_5bed5c829ea629 87
+Quartz/Features/AutoDeafen/NativeKeySender.cs
+  s_5d2da5e81f5b45::t_31b0c8e75e1ae2 76-79,84-87
+  s_5d2da5e81f5b45::t_3f10a15a00163d 91-94
+Quartz/Features/KeyViewer/KeyViewerOverlay.cs
+  s_5d2da5e81f5b45::t_20b2f16ae2cf4b 1302
+  s_5d2da5e81f5b45::t_646a9293e3faa2 977
+  s_5d2da5e81f5b45::t_dc5cfa3b10af01 1277
+  s_5d2da5e81f5b45::t_45a7de6a68939a 414,837,1923
+Quartz/GTweens/Source/Tweeners/Tweener.cs
+  s_5d2da5e81f5b45::t_fe4fcbe835994d 127
+  s_5d2da5e81f5b45::t_4afc35a872aaff 65
+  s_5d2da5e81f5b45::t_47a402fb78a9e9 75
+  s_5d2da5e81f5b45::t_8b9863c937f3c3 123
+  s_5d2da5e81f5b45::t_3d519055827ac3 107
+  s_5d2da5e81f5b45::t_0b05aa298a538a 143
+Quartz/Features/KeyViewer/KeyViewerOverlay.Graph.cs
+  s_5d2da5e81f5b45::t_e4c1fda9eb3ed8 163-164
+  s_5d2da5e81f5b45::t_b2f44bd768da2b 147
+Quartz/UI/Factory/Page/PageProfiles.cs
+  s_5d2da5e81f5b45::t_6f1e988ae40328 245
+  s_5d2da5e81f5b45::t_1e386dd9cd269e 200
+  s_5d2da5e81f5b45::t_ec93fe21794d8e 355
+Quartz/Features/Editor/EditorFloorReadout.cs
+  s_5d2da5e81f5b45::t_0285a4392afd78 291
+Quartz/IO/ProfileManager.cs
+  s_5d2da5e81f5b45::t_d49bc88612b590 332
+Quartz/UI/Factory/Page/PageGameplay.cs
+  s_5d2da5e81f5b45::t_d52f4758fcd4c7 310
+  s_5d2da5e81f5b45::t_e72a829e3c8a29 688-689
+Quartz/GTweens/Source/Tweeners/SystemVector2Tweener.cs
+  s_5d2da5e81f5b45::t_0003965f16ee86 9
+Quartz/GTweens/Source/Tweeners/SystemVector3Tweener.cs
+  s_5d2da5e81f5b45::t_3df26c72aba8d1 22
+Quartz/GTweens/Source/Tweens/GTween.cs
+  s_5d2da5e81f5b45::t_597d4499de9573 80
+  s_5d2da5e81f5b45::t_8d121dc2fa4690 161
+  s_5d2da5e81f5b45::t_5b2f2fe1e8e65f 303
+Quartz/Features/KeyViewer/KeyViewerOverlay.Css.cs
+  s_5d2da5e81f5b45::t_2a3d128b327d30 771
+  s_5d2da5e81f5b45::t_82731e2f90a5bb 759
+  s_5d2da5e81f5b45::t_a8e8e528140b93 256
+Quartz/GTweens/Source/TweenBehaviours/SequenceTweenBehaviour.cs
+  s_5d2da5e81f5b45::t_246a10929c5827 119
+  s_5d2da5e81f5b45::t_fae52f4145c650 34
+Quartz/UI/Objects/Impl/UIColorPicker.cs
+  s_5d2da5e81f5b45::t_59cd6c3f19cc41 367-368
+Quartz/Resource/ResourceManager.cs
+  s_5d2da5e81f5b45::t_088ff77a9ce3d8 159
+Quartz/Features/KeyViewer/KeyViewerCss.cs
+  s_5d2da5e81f5b45::t_20c683bb131113 621
+  s_5d2da5e81f5b45::t_f9b3461527185d 296-297
+Quartz/Core/Keybind.cs
+  s_5d2da5e81f5b45::t_bb07cc9c869b32 35
+  s_5d2da5e81f5b45::t_1ad347ed0a7286 41,47
+Quartz/UI/Generator/GenerateUI.cs
+  s_5d2da5e81f5b45::t_3f91e69c3b0a41 593
+Quartz/Features/AutoDeafen/DiscordOAuthServer.cs
+  s_5d2da5e81f5b45::t_57aca5cb5e2746 355,357,359
+Quartz/UI/Factory/Page/PageVisuals.cs
+  s_5d2da5e81f5b45::t_9d54270ff04d88 508-509
+  s_5d2da5e81f5b45::t_8b7752b1bc55f5 327-328
+  s_5d2da5e81f5b45::t_96ace48a3ae17f 760-761
+  s_5d2da5e81f5b45::t_18abc4c65dbe90 409-410
+Quartz/Features/Panels/PanelsOverlay.cs
+  s_5d2da5e81f5b45::t_e9265802cf0593 587
+  s_5d2da5e81f5b45::t_00c4bdb96c51d3 430
+Quartz/GTweens/Source/Easings/PresetEasingDelegateFactory.cs
+  s_5d2da5e81f5b45::t_61010cc8f5a531 14
+Quartz/UI/Factory/Page/PageImport.cs
+  s_5d2da5e81f5b45::t_f97c68d5e66e05 110
+Quartz/Features/KeyViewer/KeyViewerSettings.cs
+  s_5d2da5e81f5b45::t_1da7c37a248a93 650-651
+  s_5d2da5e81f5b45::t_b57d56c6294796 636-637,639-640
+Quartz/GTweens/Source/Tweeners/SystemQuaternionTweener.cs
+  s_5d2da5e81f5b45::t_f7017e4630d0b8 15
+Quartz/Features/KeyLimiter/KeyLimiterSettings.cs
+  s_5d2da5e81f5b45::t_559869c2996a93 95
+Quartz/GTweens/Source/Tweeners/FloatTweener.cs
+  s_5d2da5e81f5b45::t_42ad0d1185ab24 21
+Quartz/Features/Editor/Editor.cs
+  s_5d2da5e81f5b45::t_b1f796dc2e5d95 267,272
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "9ce151ca2660d3735a1299336d4d72c277c0a7ea",
+  "prompts": {},
+  "sessions": {
+    "s_5d2da5e81f5b45": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ee5ac89c-8c59-49c6-bff6-be1f54c6dbc3",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
