@@ -1,0 +1,14 @@
+Quartz/Core/Info.cs
+  h_6eeb8441a8a159 41,45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.6",
+  "base_commit_sha": "3515903ba0e417f83a8286d5bfa68256c4ae16c9",
+  "prompts": {},
+  "humans": {
+    "h_6eeb8441a8a159": {
+      "author": "koren <131921956+kkorenn@users.noreply.github.com>"
+    }
+  }
+}
